@@ -1,1745 +1,681 @@
 <!doctype html>
-<html lang="en">
+<html lang="mr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bramhachitanya Submersible Services</title>
+  <meta name="description" content="ब्रह्मचैतन्य सबमर्सिबल सर्विसेस, भोस, मिरज - सबमर्सिबल मोटर, इंडक्शन मोटर आणि बोअरवेल मोटर लिफ्टिंग सेवा.">
+  <title>ब्रह्मचैतन्य सबमर्सिबल सर्विसेस</title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
-
     :root {
-      --ink: #0f1d2e;
-      --muted: #687789;
-      --line: #dce4ee;
-      --paper: #eef3f8;
+      --ink: #15202b;
+      --muted: #5e6b78;
+      --line: #d8e0e8;
+      --paper: #f6f8f7;
       --panel: #ffffff;
+      --teal: #0f766e;
+      --teal-dark: #0b4f4a;
+      --yellow: #f4b000;
+      --red: #c2410c;
       --blue: #2563eb;
-      --blue-dark: #173ea5;
-      --green: #14905f;
-      --red: #dc2626;
-      --purple: #7c3aed;
-      --amber: #c27803;
-      --soft-blue: #edf5ff;
-      --soft-green: #ebfbf2;
-      --shadow: 0 18px 45px rgba(16, 35, 55, 0.10);
+      --soft: #e9f5f3;
+      --shadow: 0 18px 48px rgba(21, 32, 43, 0.12);
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 36rem),
-        linear-gradient(135deg, #f8fbff 0%, var(--paper) 48%, #f6faf8 100%);
+      font-family: "Noto Sans Devanagari", "Nirmala UI", "Mangal", Arial, sans-serif;
       color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
     }
-    button, input, select, textarea { font: inherit; }
-    button { border: 0; border-radius: 10px; padding: 10px 13px; background: var(--blue); color: #fff; font-weight: 800; cursor: pointer; box-shadow: 0 8px 20px rgba(37, 99, 235, 0.16); }
-    button:hover { transform: translateY(-1px); filter: brightness(0.98); }
-    button.secondary { background: #e8eef6; color: var(--ink); }
-    button.green { background: var(--green); }
-    button.red { background: var(--red); }
-    button.purple { background: var(--purple); }
-    button.ghost { background: transparent; color: var(--blue); padding: 6px; }
-    input, select, textarea { width: 100%; border: 1px solid #d5dfeb; border-radius: 10px; padding: 10px 11px; min-height: 42px; background: #fff; color: var(--ink); outline: none; }
-    input:focus, select:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10); }
-    input[type="checkbox"] { width: auto; min-height: 0; padding: 0; margin-right: 6px; }
-    textarea { min-height: 80px; resize: vertical; }
-    label { display: grid; gap: 6px; font-size: 12px; color: var(--muted); font-weight: 700; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 9px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    th { color: var(--muted); font-size: 12px; background: #f1f5f9; }
 
-    .app { min-height: 100vh; display: grid; grid-template-columns: 230px 1fr; }
-    aside { background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(18px); border-right: 1px solid rgba(220, 228, 238, 0.85); padding: 20px 12px; position: sticky; top: 0; height: 100vh; }
-    .brand { padding: 0 8px 18px; }
-    .brand h1 { margin: 0; font-size: 18px; line-height: 1.15; }
-    .brand p { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.4; }
-    nav { display: grid; gap: 8px; }
-    nav button { background: transparent; color: var(--ink); text-align: left; border-radius: 7px; }
-    nav button.active { background: linear-gradient(135deg, #dbeafe, #eef2ff); color: #174bc4; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    .wrap { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
 
-    main { padding: 24px 28px; max-width: 1540px; width: 100%; margin: 0 auto; }
-    .top { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 18px; }
-    .top h2 { margin: 0; font-size: 24px; }
-    .top p { margin: 5px 0 0; color: var(--muted); }
-    .view { display: none; }
-    .view.active { display: block; }
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .span-3 { grid-column: span 3; }
-    .span-4 { grid-column: span 4; }
-    .span-5 { grid-column: span 5; }
-    .span-7 { grid-column: span 7; }
-    .span-8 { grid-column: span 8; }
-    .span-12 { grid-column: span 12; }
-    .panel, .card { background: rgba(255, 255, 255, 0.92); border: 1px solid rgba(220, 228, 238, 0.9); border-radius: 16px; box-shadow: var(--shadow); }
-    .panel { padding: 18px; }
-    .panel h3 { margin: 0 0 14px; }
-    .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-    .actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-    .form-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
-    .list { display: grid; gap: 8px; }
-    .muted { color: var(--muted); }
-    .small { font-size: 12px; }
-    .right { text-align: right; }
-    .hide { display: none !important; }
-
-    .metric { min-height: 110px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: transform 0.18s ease, box-shadow 0.18s ease; }
-    .metric:hover { transform: translateY(-3px); box-shadow: 0 22px 50px rgba(16, 35, 55, 0.14); }
-    .metric span { color: var(--muted); font-size: 13px; }
-    .metric strong { display: block; margin-top: 7px; font-size: 27px; }
-    .metric b { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: #e0f2fe; color: var(--blue); }
-    .toolbar { display: flex; gap: 10px; align-items: end; justify-content: space-between; flex-wrap: wrap; margin-bottom: 14px; }
-    .segmented { display: inline-flex; background: #e8eef6; padding: 4px; border-radius: 12px; gap: 4px; }
-    .segmented button { background: transparent; color: var(--muted); box-shadow: none; padding: 8px 12px; }
-    .segmented button.active { background: #fff; color: var(--blue-dark); box-shadow: 0 5px 14px rgba(16, 35, 55, 0.10); }
-    .drilldown { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 14px; }
-    .drilldown h3 { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
-    .info-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-    .info-row:last-child { border-bottom: 0; }
-    canvas { width: 100%; height: 280px; display: block; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
-
-    .customer-shell { display: grid; grid-template-columns: 410px 1fr; gap: 18px; }
-    .customer-item { padding: 12px; border: 1px solid transparent; border-radius: 7px; background: #f8fafc; cursor: pointer; display: flex; justify-content: space-between; gap: 10px; }
-    .customer-item.active { border-color: var(--blue); background: #eef6ff; }
-    .customer-item strong { display: block; margin-bottom: 3px; }
-    .due { color: var(--red); font-weight: 900; }
-    .received { color: var(--green); font-weight: 900; }
-    .customer-scroll { max-height: 62vh; overflow: auto; padding-right: 4px; }
-    .due-box { background: #f8fafc; border-radius: 8px; text-align: center; padding: 18px; margin: 14px 0; }
-    .due-box span { display: block; font-size: 13px; color: var(--muted); }
-    .due-box strong { display: block; font-size: 27px; color: var(--red); }
-    .history-card { border-left: 4px solid var(--blue); background: var(--soft-blue); border-radius: 12px; padding: 14px; }
-    .history-card.payment { border-left-color: #22c55e; background: var(--soft-green); }
-    .history-card.roundoff { border-left-color: var(--amber); background: #fff7e6; }
-    .history-head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
-    .history-head h4 { margin: 0 0 4px; }
-    .history-head .amount { font-size: 18px; font-weight: 900; color: var(--blue); }
-    .history-card.payment .amount { color: var(--green); }
-    .mini-actions { display: flex; gap: 8px; justify-content: flex-end; align-items: center; }
-    .mini-actions button { padding: 5px 7px; min-height: 28px; }
-
-    .modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.38); display: none; align-items: flex-start; justify-content: center; padding: 26px 12px; overflow: auto; z-index: 20; }
-    .modal.open { display: flex; }
-    .modal-box { width: min(980px, 100%); background: #fff; border-radius: 18px; padding: 18px; box-shadow: 0 18px 60px rgba(15, 23, 42, 0.22); }
-    .modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-    .modal-head h3 { margin: 0; }
-    .fieldset { border: 1px solid var(--line); border-radius: 8px; padding: 13px; margin-bottom: 13px; }
-    .fieldset h4 { margin: 0 0 12px; font-size: 14px; }
-    .purple-box { background: #faf5ff; border-color: #ead7ff; }
-    .total-box { display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border-radius: 7px; padding: 13px; font-weight: 900; }
-    .item-row { display: grid; grid-template-columns: 1.5fr 80px 110px 100px 36px; gap: 8px; align-items: end; margin-bottom: 8px; }
-    .winding-table { display: grid; gap: 10px; }
-    .winding-line { display: grid; grid-template-columns: 150px repeat(4, minmax(110px, 1fr)); gap: 10px; align-items: end; }
-    .winding-line strong { padding-bottom: 12px; font-size: 13px; color: var(--ink); }
-    .empty { border: 1px dashed #bdc9d6; border-radius: 8px; background: #fbfdff; padding: 22px; text-align: center; color: var(--muted); }
-    .toast { position: fixed; right: 18px; bottom: 18px; display: none; background: #102a43; color: #fff; padding: 12px 14px; border-radius: 7px; z-index: 30; }
-    .toast.show { display: block; }
-    #printArea { display: none; }
-    .auth-hidden { display: none !important; }
-    .login-page { min-height: 100vh; display: grid; grid-template-columns: 1.1fr 0.9fr; background: linear-gradient(135deg, #eff6ff, #f8fafc 48%, #ecfdf5); }
-    .login-hero { padding: 54px; display: flex; flex-direction: column; justify-content: center; }
-    .login-hero h1 { font-size: clamp(34px, 5vw, 64px); line-height: 1; margin: 0 0 18px; letter-spacing: -0.04em; }
-    .login-hero p { color: var(--muted); max-width: 640px; font-size: 18px; line-height: 1.6; }
-    .login-card-wrap { display: grid; place-items: center; padding: 24px; }
-    .login-card { width: min(430px, 100%); background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(220, 228, 238, 0.9); border-radius: 22px; padding: 24px; box-shadow: var(--shadow); }
-    .login-card h2 { margin: 0 0 8px; }
-    .sync-pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 999px; background: #eef6ff; color: var(--blue-dark); font-size: 12px; font-weight: 800; }
-    .sync-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
-    .detail-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 10px 0; }
-    .detail-pill { background: rgba(255, 255, 255, 0.62); border: 1px solid rgba(220, 228, 238, 0.9); border-radius: 10px; padding: 8px; }
-    .detail-pill span { display: block; color: var(--muted); font-size: 11px; font-weight: 800; }
-    .detail-pill strong { display: block; margin-top: 4px; font-size: 13px; }
-
-    @media (max-width: 1020px) {
-      .app { grid-template-columns: 1fr; }
-      aside { height: auto; position: static; }
-      nav { grid-template-columns: repeat(2, 1fr); }
-      .login-page { grid-template-columns: 1fr; }
-      .login-hero { padding: 34px 22px 12px; }
-      main { padding: 16px; }
-      .customer-shell { grid-template-columns: 1fr; }
-      .span-3, .span-4, .span-5, .span-7, .span-8, .span-12 { grid-column: span 12; }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid rgba(216, 224, 232, 0.85);
+      backdrop-filter: blur(16px);
     }
-    @media (max-width: 640px) {
-      .form-grid { grid-template-columns: 1fr; }
-      .form-grid > * { grid-column: span 1 !important; }
-      .item-row { grid-template-columns: 1fr 1fr; }
-      .item-row .remove-item { grid-column: span 2; }
-      .winding-line { grid-template-columns: 1fr; }
-      .winding-line strong { padding-bottom: 0; }
-      .top { align-items: flex-start; flex-direction: column; }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
     }
-    @media print {
-      aside, .top, .no-print, .modal, .toast { display: none !important; }
-      body { background: #fff; }
-      .app, main { display: block; padding: 0; margin: 0; max-width: none; }
-      .panel, .card, .history-card { box-shadow: none; border-color: #ddd; }
-      .view { display: none !important; }
-      #customersView { display: block !important; }
-      .customer-shell { display: block; }
-      #customerListPanel { display: none; }
-      body.print-mode .app { display: none !important; }
-      body.print-mode #printArea { display: block !important; }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+      border: 2px solid #d78b12;
+      background: linear-gradient(135deg, #fff7d6, #ffffff 48%, #e8f7f5);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+    .brand-mark span { color: #b45309; font-weight: 900; font-size: 18px; }
+    .brand h1 { margin: 0; font-size: clamp(18px, 2.2vw, 25px); line-height: 1.1; }
+    .brand p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .links a, .links button {
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      padding: 9px 10px;
+      border-radius: 7px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .links a:hover, .links button:hover { background: #edf4f3; color: var(--teal-dark); }
+    .call-btn {
+      background: var(--teal) !important;
+      color: #fff !important;
+      box-shadow: 0 10px 24px rgba(15, 118, 110, 0.2);
+    }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      display: grid;
+      align-items: center;
+      padding: 42px 0 34px;
+      background:
+        linear-gradient(90deg, rgba(8, 42, 39, 0.88), rgba(8, 42, 39, 0.64) 45%, rgba(8, 42, 39, 0.12)),
+        var(--hero-image, url("assets/crane-ai-clean.png")) center / cover no-repeat;
+      color: #fff;
+    }
+
+    .hero-content { width: min(760px, 100%); padding-top: 26px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .hero h2 {
+      margin: 18px 0 14px;
+      font-size: clamp(38px, 7vw, 78px);
+      line-height: 0.98;
+      max-width: 850px;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .hero p { margin: 0; font-size: clamp(17px, 2vw, 22px); max-width: 680px; color: rgba(255, 255, 255, 0.9); overflow-wrap: anywhere; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 12px 16px;
+      border-radius: 7px;
+      border: 1px solid transparent;
+      background: var(--yellow);
+      color: #16110a;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .btn.secondary { background: rgba(255, 255, 255, 0.12); color: #fff; border-color: rgba(255, 255, 255, 0.35); }
+    .btn.dark { background: var(--teal-dark); color: #fff; }
+    .hero-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 44px;
+      width: min(820px, 100%);
+      background: rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .hero-strip div { padding: 16px; background: rgba(255, 255, 255, 0.13); }
+    .hero-strip strong { display: block; font-size: 22px; }
+    .hero-strip span { display: block; color: rgba(255, 255, 255, 0.82); font-size: 13px; }
+
+    section { padding: 76px 0; }
+    .section-head { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 28px; }
+    .section-head h2 { margin: 0; font-size: clamp(28px, 4vw, 46px); line-height: 1.08; }
+    .section-head p { margin: 0; max-width: 520px; color: var(--muted); }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 10px 28px rgba(21, 32, 43, 0.07);
+    }
+
+    .card .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 7px;
+      background: var(--soft);
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      color: var(--teal-dark);
+      font-weight: 900;
+    }
+
+    .card h3 { margin: 0 0 8px; font-size: 21px; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .crane-band { background: #0c3d39; color: #fff; }
+    .crane-layout { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 34px; align-items: center; }
+    .crane-photo {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: var(--shadow);
+      background: #163f3c;
+      aspect-ratio: 16 / 9;
+    }
+
+    .crane-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .crane-copy h2 { margin: 0 0 14px; font-size: clamp(29px, 4vw, 48px); line-height: 1.08; }
+    .crane-copy p { color: rgba(255, 255, 255, 0.84); font-size: 18px; }
+    .ticks { display: grid; gap: 10px; margin: 24px 0; padding: 0; list-style: none; }
+    .ticks li { display: flex; gap: 10px; align-items: flex-start; }
+    .ticks b { color: var(--yellow); }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr 0.9fr;
+      gap: 16px;
+    }
+
+    .gallery-item {
+      min-height: 240px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #eaf0f0;
+      position: relative;
+    }
+
+    .gallery-item:first-child { grid-row: span 2; min-height: 496px; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .placeholder {
+      height: 100%;
+      min-height: inherit;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .contact-band { background: #fff; }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+    .contact-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      background: #fbfdfc;
+    }
+
+    .contact-panel h3 { margin: 0 0 14px; font-size: 25px; }
+    .info-list { display: grid; gap: 12px; margin: 18px 0 22px; }
+    .info-list div { display: grid; gap: 2px; }
+    .info-list span { color: var(--muted); font-size: 13px; font-weight: 800; }
+    .info-list strong { font-size: 17px; }
+    .map-box {
+      min-height: 340px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #e9f5f3, #fff8df);
+      display: grid;
+      place-items: center;
+      padding: 26px;
+      text-align: center;
+    }
+
+    .map-box strong { display: block; font-size: 23px; margin-bottom: 12px; }
+
+    .settings {
+      background: #102623;
+      color: #fff;
+      display: none;
+    }
+
+    .settings.open { display: block; }
+    .settings p { color: rgba(255, 255, 255, 0.72); }
+    .settings-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .settings-card {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    label { display: grid; gap: 7px; color: rgba(255, 255, 255, 0.78); font-weight: 800; font-size: 13px; margin-bottom: 12px; }
+    input, textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--ink);
+      padding: 11px 12px;
+      outline: none;
+    }
+
+    textarea { min-height: 86px; resize: vertical; }
+    .note { font-size: 13px; color: rgba(255, 255, 255, 0.66); }
+    .footer {
+      padding: 26px 0;
+      background: #071817;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+    }
+
+    .footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+      .links { justify-content: flex-start; }
+      .hero { min-height: auto; padding: 72px 0 38px; }
+      .hero-strip, .service-grid, .crane-layout, .gallery, .contact-layout, .settings-grid { grid-template-columns: 1fr; }
+      .gallery-item:first-child { grid-row: auto; min-height: 300px; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 22px, 1160px); }
+      .brand h1 { font-size: 17px; }
+      .brand p { font-size: 12px; }
+      .links a, .links button { padding: 8px 7px; font-size: 13px; }
+      section { padding: 52px 0; }
+      .hero-content { width: 100%; max-width: 100%; }
+      .hero h2 { font-size: 31px; line-height: 1.12; max-width: 330px; }
+      .hero p { font-size: 16px; max-width: 330px; word-break: break-word; }
+      .hero-actions .btn { width: 100%; }
+      .hero-strip div { padding: 13px; }
     }
   </style>
 </head>
 <body>
-  <section id="loginView" class="login-page">
-    <div class="login-hero">
-      <div class="sync-pill"><span class="sync-dot"></span> Online workshop records</div>
-      <h1>Bramhachitanya workshop data, protected and available anywhere.</h1>
-      <p>Login once on mobile or desktop to add motor data, payments, lifting work, rewinding details, statements, WhatsApp messages, and Excel exports from the same live Firestore database.</p>
-    </div>
-    <div class="login-card-wrap">
-      <form id="loginForm" class="login-card">
-        <h2>Login</h2>
-        <p class="muted">Only the authorised workshop account can open this data.</p>
-        <label>Email
-          <input id="loginEmail" type="email" value="Shubhamsutar789@gmail.com" autocomplete="username" required>
-        </label>
-        <label style="margin-top: 12px;">Password
-          <input id="loginPassword" type="password" autocomplete="current-password" required>
-        </label>
-        <p id="loginError" class="small due"></p>
-        <button type="submit" style="width: 100%;">Sign In</button>
-      </form>
-    </div>
-  </section>
-
-  <div class="app auth-hidden" id="appShell">
-    <aside>
-      <div class="brand">
-        <h1>Bramhachitanya Submersible Services</h1>
-        <p>Submersible motor service, lifting, material and payment records.</p>
-        <p><strong>Shashikant Sutar</strong><br>89565618180</p>
-        <p><strong>Shubham Sutar</strong><br>7410555337</p>
-      </div>
-      <nav>
-        <button class="active" data-tab="dashboardView">Dashboard</button>
-        <button data-tab="customersView">Customers</button>
-        <button data-tab="searchView">Search Data</button>
-        <button data-tab="motorDataView">Motor Data</button>
-        <button data-tab="materialsView">Materials & Rates</button>
-        <button data-tab="backupView">Settings</button>
-      </nav>
-    </aside>
-
-    <main>
-      <div class="top no-print">
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="ब्रह्मचैतन्य सबमर्सिबल सर्विसेस">
+        <div class="brand-mark" id="logoSlot"><span>BSS</span></div>
         <div>
-          <h2 id="pageTitle">Dashboard</h2>
-          <p id="pageSub">Monthly income, pending payments and workshop activity.</p>
+          <h1 data-edit="businessName">ब्रह्मचैतन्य सबमर्सिबल सर्विसेस</h1>
+          <p>सबमर्सिबल मोटर सेवा | भोस, मिरज</p>
         </div>
-        <div class="actions">
-          <span class="sync-pill"><span class="sync-dot" id="syncDot"></span><span id="syncStatus">Offline cache</span></span>
-          <button class="secondary" id="signOutBtn">Sign Out</button>
-          <button class="secondary" id="exportBtn">Export Backup</button>
-          <button class="secondary" id="importBtn">Import Backup</button>
-          <input hidden type="file" id="importFile" accept="application/json">
+      </a>
+      <nav class="links" aria-label="मुख्य मेनू">
+        <a href="#services">सेवा</a>
+        <a href="#crane">क्रेन सेवा</a>
+        <a href="#gallery">फोटो</a>
+        <a href="#contact">संपर्क</a>
+        <button type="button" id="settingsToggle">Settings</button>
+        <a class="call-btn" href="tel:+917410555337" data-edit-href="primaryPhoneHref">Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero" id="heroSection">
+      <div class="wrap">
+        <div class="hero-content">
+          <span class="eyebrow">विश्वासू मोटर दुरुस्ती आणि लिफ्टिंग सेवा</span>
+          <h2>शेती, बोअरवेल आणि घरगुती मोटरसाठी जलद सेवा.</h2>
+          <p data-edit="heroText">V4, V6, ओपनवेल, इंडक्शन, मोनोब्लॉक आणि घरगुती पंपांची देखभाल व दुरुस्ती अनुभवी पद्धतीने केली जाते.</p>
+          <div class="hero-actions">
+            <a class="btn" href="tel:+917410555337" data-edit-href="primaryPhoneHref">आता कॉल करा</a>
+            <a class="btn secondary" href="https://share.google/WZ0urx8kakllmbY9Q" target="_blank" rel="noreferrer">Google Map</a>
+          </div>
+          <div class="hero-strip">
+            <div><strong>V4 / V6</strong><span>सबमर्सिबल मोटर सेवा</span></div>
+            <div><strong>क्रेन</strong><span>बोअरवेल मोटर लिफ्टिंग</span></div>
+            <div><strong>भोस</strong><span>तालुका मिरज, सांगली</span></div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <section id="dashboardView" class="view active">
-        <div class="panel no-print" style="margin-bottom: 16px;">
-          <div class="toolbar">
-            <div>
-              <h3 style="margin: 0 0 6px;">Dashboard Filters</h3>
-              <div class="muted small">Click any summary card to see the exact customer/payment/job list.</div>
-            </div>
-            <div class="row">
-              <div class="segmented">
-                <button id="dashMonthMode" class="active" type="button">Month</button>
-                <button id="dashYearMode" type="button">Year</button>
-              </div>
-              <label id="dashMonthWrap">Month
-                <input id="dashMonth" type="month">
-              </label>
-              <label id="dashYearWrap" class="hide">Year
-                <input id="dashYear" type="number" min="2000" max="2100">
-              </label>
-            </div>
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>आमच्या मुख्य सेवा</h2>
+          <p>मोटर सुरू न होणे, पाणी कमी येणे, winding problem, bearing आवाज, cable fault किंवा starter/load तपासणी अशा कामांसाठी योग्य निदान आणि service.</p>
+        </div>
+        <div class="service-grid">
+          <article class="card">
+            <div class="icon">V6</div>
+            <h3>V6 सबमर्सिबल</h3>
+            <p>कृषी वापरातील V6 बोअरवेल मोटर तपासणी, maintenance, repair आणि fitting guidance.</p>
+          </article>
+          <article class="card">
+            <div class="icon">V4</div>
+            <h3>V4 सबमर्सिबल</h3>
+            <p>घरगुती आणि शेतीच्या V4 मोटरची सेवा, cable checking आणि performance तपासणी.</p>
+          </article>
+          <article class="card">
+            <div class="icon">OW</div>
+            <h3>ओपनवेल सबमर्सिबल</h3>
+            <p>विहीर/ओपनवेल मोटरचे servicing, seal, bearing, impeller आणि electrical fault काम.</p>
+          </article>
+          <article class="card">
+            <div class="icon">IM</div>
+            <h3>इंडक्शन मोटर</h3>
+            <p>single phase आणि three phase induction motor ची तपासणी, rewinding support आणि repair.</p>
+          </article>
+          <article class="card">
+            <div class="icon">MB</div>
+            <h3>मोनोब्लॉक मोटर</h3>
+            <p>monoblock induction motor, pump alignment, bearing आणि capacitor related काम.</p>
+          </article>
+          <article class="card">
+            <div class="icon">HP</div>
+            <h3>Self Priming / Lower HP</h3>
+            <p>घरगुती lower HP pump, self priming motor आणि regular maintenance सेवा.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="crane-band" id="crane">
+      <div class="wrap crane-layout">
+        <div class="crane-photo">
+          <img id="craneImage" src="assets/crane-ai-clean.png" alt="बोअरवेल मोटर लिफ्टिंगसाठी क्रेन">
+        </div>
+        <div class="crane-copy">
+          <h2>Automatic crane ने बोअरवेल मोटर लिफ्टिंग.</h2>
+          <p data-edit="craneText">आमच्याकडे बोअरवेल मोटर लवकर वर काढण्यासाठी क्रेन सुविधा आहे. त्यामुळे वेळ, मेहनत आणि manpower कमी लागते.</p>
+          <ul class="ticks">
+            <li><b>✓</b><span>बोअरवेल मोटर lifting आणि lowering साठी उपयोगी.</span></li>
+            <li><b>✓</b><span>कमी वेळेत काम पूर्ण करण्यावर भर.</span></li>
+            <li><b>✓</b><span>शेतीच्या emergency कामांसाठी जलद संपर्क.</span></li>
+          </ul>
+          <a class="btn" href="tel:+917410555337" data-edit-href="primaryPhoneHref">क्रेन सेवेसाठी कॉल करा</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>मोटर आणि workshop फोटो</h2>
+          <p>लोगो, motor photos आणि workshop चे आणखी फोटो Settings मधून upload करता येतील. फोटो नसतील तर जागा रिकामी ठेवली आहे.</p>
+        </div>
+        <div class="gallery">
+          <div class="gallery-item" id="gallery1"><div class="placeholder">V6 / V4 motor फोटो upload करा</div></div>
+          <div class="gallery-item" id="gallery2"><div class="placeholder">ओपनवेल motor फोटो upload करा</div></div>
+          <div class="gallery-item" id="gallery3"><div class="placeholder">इंडक्शन / मोनोब्लॉक फोटो upload करा</div></div>
+          <div class="gallery-item" id="gallery4"><div class="placeholder">workshop / कामाचा फोटो upload करा</div></div>
+          <div class="gallery-item" id="gallery5"><div class="placeholder">ग्राहक साइट फोटो upload करा</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contact">
+      <div class="wrap contact-layout">
+        <div class="contact-panel">
+          <h3>संपर्क करा</h3>
+          <p>मोटरची अडचण, बोअरवेल lifting किंवा service quotation साठी फोन करा.</p>
+          <div class="info-list">
+            <div><span>Workshop</span><strong data-edit="businessName">ब्रह्मचैतन्य सबमर्सिबल सर्विसेस</strong></div>
+            <div><span>पत्ता</span><strong data-edit="address">AP, भोस. तालुका मिरज, जिल्हा सांगली - 416420</strong></div>
+            <div><span>फोन</span><strong data-edit="phoneText">शुभम सुतार: 7410555337 | शशिकांत सुतार: 89565618180</strong></div>
+            <div><span>Email</span><strong data-edit="email">shubhamsutar789@gmail.com</strong></div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn dark" href="tel:+917410555337" data-edit-href="primaryPhoneHref">फोन करा</a>
+            <a class="btn" href="https://wa.me/917410555337" data-edit-href="whatsappHref">WhatsApp</a>
           </div>
         </div>
-        <div class="grid">
-          <div class="panel span-3 metric" data-drill="customers"><div><span>Customers</span><strong id="metricCustomers">0</strong></div><b>C</b></div>
-          <div class="panel span-3 metric" data-drill="jobs"><div><span>Jobs in period</span><strong id="metricJobs">0</strong></div><b>J</b></div>
-          <div class="panel span-3 metric" data-drill="received"><div><span id="metricReceivedLabel">This month received</span><strong id="metricMonth">Rs. 0</strong></div><b>R</b></div>
-          <div class="panel span-3 metric" data-drill="due"><div><span>Total amount due</span><strong id="metricDue">Rs. 0</strong></div><b>D</b></div>
-          <div class="panel span-8">
-            <h3 id="chartTitle">Monthly received payments</h3>
-            <canvas id="monthlyChart" width="900" height="310"></canvas>
-          </div>
-          <div class="panel span-4">
-            <h3>Pending Customers</h3>
-            <div id="pendingCustomers" class="list"></div>
-          </div>
-          <div class="panel span-12 drilldown" id="dashboardDrilldown"></div>
-        </div>
-      </section>
-
-      <section id="customersView" class="view">
-        <div class="customer-shell">
-          <div class="panel" id="customerListPanel">
-            <div class="row" style="justify-content: space-between; margin-bottom: 12px;">
-              <h3 style="margin: 0;">Customers</h3>
-              <button id="newCustomerBtn">+ New</button>
-            </div>
-            <label>Search customers
-              <input id="customerSearch" placeholder="Name, village, mobile">
-            </label>
-            <div class="customer-scroll list" id="customerList" style="margin-top: 14px;"></div>
-          </div>
-          <div class="panel">
-            <div id="customerDetail"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="searchView" class="view">
-        <div class="panel">
-          <h3>Search All Data</h3>
-          <div class="form-grid" style="margin-bottom: 14px;">
-            <label style="grid-column: span 5;">Search
-              <input id="globalSearch" placeholder="Name, village, company, material, motor type, mobile">
-            </label>
-            <label style="grid-column: span 2;">Type
-              <select id="globalType">
-                <option value="">All</option>
-                <option value="job">Jobs</option>
-                <option value="payment">Payments</option>
-                <option value="roundoff">Round Off</option>
-              </select>
-            </label>
-            <label style="grid-column: span 2;">Month
-              <input id="globalMonth" type="month">
-            </label>
-            <label style="grid-column: span 3;">Customer
-              <select id="globalCustomer"></select>
-            </label>
-            <label style="grid-column: span 3;">Motor company
-              <input id="globalCompany" placeholder="CRI, Texmo...">
-            </label>
-            <label style="grid-column: span 3;">HP
-              <input id="globalHp" placeholder="3, 5, 7.5">
-            </label>
-            <label style="grid-column: span 3;">Phase
-              <select id="globalSupply"><option value="">All</option><option>3ph</option><option>Single phase</option><option>2ph</option></select>
-            </label>
-            <label style="grid-column: span 3;">Motor type
-              <select id="globalMotorType"></select>
-            </label>
-          </div>
-          <div id="searchResults" class="list"></div>
-        </div>
-      </section>
-
-      <section id="motorDataView" class="view">
-        <div class="panel">
-          <h3>Motor Winding Data</h3>
-          <div class="form-grid" style="margin-bottom: 14px;">
-            <label style="grid-column: span 3;">Search
-              <input id="motorSearch" placeholder="Customer, village, company">
-            </label>
-            <label style="grid-column: span 3;">Motor company
-              <input id="motorCompanyFilter">
-            </label>
-            <label style="grid-column: span 2;">HP
-              <input id="motorHpFilter">
-            </label>
-            <label style="grid-column: span 2;">Phase
-              <select id="motorSupplyFilter"><option value="">All</option><option>3ph</option><option>Single phase</option><option>2ph</option></select>
-            </label>
-            <label style="grid-column: span 2;">Motor type
-              <select id="motorTypeFilter"></select>
-            </label>
-          </div>
-          <div id="motorDataResults" class="list"></div>
-        </div>
-      </section>
-
-      <section id="materialsView" class="view">
-        <div class="grid">
-          <div class="panel span-7">
-            <h3>Materials & Service Default Rates</h3>
-            <table>
-              <thead><tr><th>Name</th><th>Category</th><th>Default price</th><th></th></tr></thead>
-              <tbody id="materialRows"></tbody>
-            </table>
-          </div>
-          <div class="panel span-5">
-            <h3>Add Material / Service Rate</h3>
-            <form id="materialForm">
-              <div class="form-grid">
-                <label style="grid-column: span 7;">Name
-                  <input id="materialName" required placeholder="Terminal, fitting charge, capacitor">
-                </label>
-                <label style="grid-column: span 5;">Category
-                  <select id="materialCategory">
-                    <option>Material</option>
-                    <option>Service</option>
-                    <option>Rewinding</option>
-                    <option>Lifting</option>
-                  </select>
-                </label>
-                <label style="grid-column: span 6;">Default price
-                  <input id="materialPrice" required type="number" min="0" step="1">
-                </label>
-              </div>
-              <button type="submit">Save Rate</button>
-            </form>
-          </div>
-          <div class="panel span-12">
-            <h3>Rewinding Price Rules</h3>
-            <p class="muted small">These are used when you select Rewinding in a job. Amount can still be changed in the job.</p>
-            <div class="grid">
-              <div class="span-7">
-                <table>
-                  <thead><tr><th>Motor type</th><th>HP</th><th>Supply</th><th>Price</th><th></th></tr></thead>
-                  <tbody id="rewindingRows"></tbody>
-                </table>
-              </div>
-              <form id="rewindingForm" class="span-5">
-                <div class="form-grid">
-                  <label style="grid-column: span 6;">Motor Type
-                    <select id="rateMotorType"></select>
-                  </label>
-                  <label style="grid-column: span 3;">HP
-                    <input id="rateHp" required>
-                  </label>
-                  <label style="grid-column: span 3;">Supply
-                    <select id="rateSupply"><option>3ph</option><option>Single phase</option><option>2ph</option></select>
-                  </label>
-                  <label style="grid-column: span 6;">Price
-                    <input id="ratePrice" required type="number" min="0" step="1">
-                  </label>
-                </div>
-                <button type="submit">Save Rewinding Rate</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="backupView" class="view">
-        <div class="panel">
-          <h3>Settings, Backup And Excel Export</h3>
-          <p class="muted">This version saves automatically in this browser. Export Backup gives you a local JSON file. You can upload these files to GitHub Pages for online access, and the next step can connect Firebase or Supabase so the same data syncs across phones and computers.</p>
-          <div class="row">
-            <button id="exportBtn2">Export Backup</button>
-            <button class="secondary" id="importBtn2">Import Backup</button>
-            <button class="green" id="excelExportBtn">Export Excel</button>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <div class="modal" id="customerModal">
-    <div class="modal-box">
-      <div class="modal-head"><h3 id="customerModalTitle">New Customer</h3><button class="secondary" data-close>Close</button></div>
-      <form id="customerForm">
-        <div class="form-grid">
-          <label style="grid-column: span 5;">Customer name
-            <input id="custName" required>
-          </label>
-          <label style="grid-column: span 3;">Village
-            <input id="custVillage" required>
-          </label>
-          <label style="grid-column: span 4;">Mobile number
-            <input id="custMobile" inputmode="tel">
-          </label>
-          <label style="grid-column: span 12;">Notes / reference name
-            <textarea id="custNotes" placeholder="Wireman name, farm location, reference, etc."></textarea>
-          </label>
-        </div>
-        <div class="row"><button type="submit">Save Customer</button></div>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal" id="jobModal">
-    <div class="modal-box">
-      <div class="modal-head"><h3 id="jobTitle">New Job</h3><button class="secondary" data-close>Close</button></div>
-      <form id="jobForm">
-        <div class="fieldset">
-          <h4>Job Details</h4>
-          <div class="form-grid">
-            <label style="grid-column: span 3;">Job Date
-              <input id="jobDate" type="date" required>
-            </label>
-            <label style="grid-column: span 3;">Motor Company
-              <input id="jobCompany">
-            </label>
-            <label style="grid-column: span 2;">HP / Stage
-              <input id="jobHp">
-            </label>
-            <label style="grid-column: span 2;">Motor Type
-              <select id="jobMotorType"></select>
-            </label>
-            <label style="grid-column: span 2;">Supply Type
-              <select id="jobSupply"><option>3ph</option><option>Single phase</option><option>2ph</option></select>
-            </label>
-            <label style="grid-column: span 4;">Pitch
-              <select id="jobPitch"></select>
-            </label>
-            <label style="grid-column: span 4;">Former Length
-              <input id="jobFormer">
-            </label>
-            <label style="grid-column: span 4;">Connection
-              <select id="jobConnection"></select>
-            </label>
-          </div>
-          <div id="windingFields" style="margin-top: 12px;"></div>
-        </div>
-
-        <div class="fieldset">
-          <h4>Work Type</h4>
-          <div class="form-grid">
-            <label style="grid-column: span 3;"><span><input type="checkbox" id="includeRewinding"> Rewinding</span></label>
-            <label style="grid-column: span 3;"><span><input type="checkbox" id="includeLifting"> Lifting motor</span></label>
-            <label style="grid-column: span 3;"><span><input type="checkbox" id="includeUnlifting"> Unlifting motor</span></label>
-            <label style="grid-column: span 3;">Borewell length feet
-              <input id="boreFeet" type="number" min="0" step="1" placeholder="300">
-            </label>
-          </div>
-          <p class="small muted">Lifting/unlifting rate: below or equal 300 ft = Rs. 1500 fixed. Above 300 ft = Rs. 5 per foot. Lifting and unlifting are charged separately.</p>
-        </div>
-
-        <div class="fieldset">
-          <h4>Other Work & Materials</h4>
-          <div id="itemRows"></div>
-          <button type="button" class="secondary" id="addItemBtn">+ Add Item</button>
-        </div>
-
-        <div class="fieldset">
-          <h4>Notes</h4>
-          <textarea id="jobNotes" placeholder="Motor replaced under warranty, fitting changes, parts used, etc."></textarea>
-        </div>
-
-        <div class="fieldset purple-box">
-          <h4>Payment</h4>
-          <label>Amount Paid / Advance
-            <input id="jobPaid" type="number" min="0" step="1" value="0">
-          </label>
-        </div>
-
-        <div class="total-box"><span>Grand Total</span><span id="jobGrandTotal">Rs. 0</span></div>
-        <div class="row" style="justify-content: flex-end; margin-top: 14px;">
-          <button type="button" class="secondary" data-close>Cancel</button>
-          <button type="submit" class="green">Save Job</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal" id="paymentModal">
-    <div class="modal-box" style="width: min(520px, 100%);">
-      <div class="modal-head"><h3>Add Payment</h3><button class="secondary" data-close>Close</button></div>
-      <form id="paymentForm">
-          <div class="form-grid">
-            <label style="grid-column: span 6;">Payment Date
-              <input id="paymentDate" type="date" required>
-            </label>
-            <label style="grid-column: span 6;">Amount Received
-              <input id="paymentAmount" required type="number" min="0" step="1">
-            </label>
-            <label style="grid-column: span 12;">
-              <span><input id="paymentRoundoff" type="checkbox"> Round off remaining balance as discount</span>
-            </label>
-            <label style="grid-column: span 12;">Notes
-              <textarea id="paymentNotes" placeholder="Cash, UPI, bank, etc."></textarea>
-            </label>
-        </div>
-        <button type="submit" class="purple">Save Payment</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal" id="jobDetailModal">
-    <div class="modal-box">
-      <div class="modal-head"><h3>Specific Job Details</h3><button class="secondary" data-close>Close</button></div>
-      <div id="jobDetailBody"></div>
-    </div>
-  </div>
-
-  <div id="toast" class="toast"></div>
-  <div id="printArea"></div>
-
-  <script src="https://www.gstatic.com/firebasejs/12.13.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/12.13.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore-compat.js"></script>
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyA4OKUlod4pcrxkxMgB5OHVjYDM3IZFJB8",
-      authDomain: "project-buddy-789.firebaseapp.com",
-      projectId: "project-buddy-789",
-      storageBucket: "project-buddy-789.firebasestorage.app",
-      messagingSenderId: "749593176021",
-      appId: "1:749593176021:web:659509ac531adf23837f5c",
-      measurementId: "G-T6JFQHLRNV"
-    };
-    const ALLOWED_EMAIL = "shubhamsutar789@gmail.com";
-    const CLOUD_COLLECTION = "workshopData";
-    const CLOUD_DOC = "main";
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const firestore = firebase.firestore();
-    firestore.enablePersistence({ synchronizeTabs: true }).catch(() => {});
-
-    const STORAGE_KEY = "bramhachitanya-workshop-v2";
-    const OLD_KEY = "bramhachitanya-workshop-v1";
-    const motorTypes = ["V4 Submersible", "V6 Submersible", "Openwell", "Induction motor", "Self Priming"];
-    const pitchOptions = {
-      "3ph": ["1-10, 1-12"],
-      "2ph": ["1-8, 1-10, 1-12", "1-6, 1-8, 1-10, 1-12"],
-      "Single phase": ["1-8, 1-10, 1-12", "1-6, 1-8, 1-10, 1-12"]
-    };
-    const pages = {
-      dashboardView: ["Dashboard", "Monthly income, pending payments and workshop activity."],
-      customersView: ["Customers", "Open one customer and see full date-wise work and payment history."],
-      searchView: ["Search Data", "Find old records by customer, village, company, material, motor type or mobile."],
-      motorDataView: ["Motor Data", "Search and inspect winding/motor details only."],
-      materialsView: ["Materials & Rates", "Set default rates for rewinding, materials, fitting and service items."],
-      backupView: ["Settings", "Backup, import, and export Excel files."]
-    };
-
-    let data = loadData();
-    let selectedCustomerId = data.customers[0]?.id || null;
-    let editingCustomerId = null;
-    let editingTransactionId = null;
-    let pendingDeleteId = null;
-    let dashboardMode = "month";
-    let activeDrill = "received";
-    let focusedMotorId = null;
-    let currentUser = null;
-    let unsubscribeCloud = null;
-    let applyingCloudData = false;
-    let cloudSaveTimer = null;
-
-    function id() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
-    function today() { return new Date().toISOString().slice(0, 10); }
-    function money(value) { return "Rs. " + Number(value || 0).toLocaleString("en-IN"); }
-    function norm(value) { return String(value || "").trim().toLowerCase(); }
-    function escapeHtml(text) { return String(text || "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;" }[c])); }
-    function value(idValue) { return document.getElementById(idValue)?.value?.trim() || ""; }
-    function setValue(idValue, next) { const el = document.getElementById(idValue); if (el) el.value = next || ""; }
-    function phoneForWhatsApp(phone) { return String(phone || "").replace(/\D/g, "").slice(-10); }
-    function ownerLines() { return ["For any doubt contact:", "Shashikant Sutar - 89565618180", "Shubham Sutar - 7410555337"]; }
-
-    function defaults() {
-      return {
-        customers: [],
-        transactions: [],
-        materials: [
-          { id: id(), name: "Terminal", category: "Material", price: 100 },
-          { id: id(), name: "Fitting Charges", category: "Service", price: 500 },
-          { id: id(), name: "10 MFD Capacitor", category: "Material", price: 60 },
-          { id: id(), name: "32 A Fuse", category: "Material", price: 120 },
-          { id: id(), name: "4mm Cu Wire", category: "Material", price: 40 }
-        ],
-        rewindingRates: [
-          { id: id(), motorType: "V4 Submersible", hp: "1", supply: "Single phase", price: 1800 },
-          { id: id(), motorType: "V4 Submersible", hp: "1.5", supply: "Single phase", price: 2200 },
-          { id: id(), motorType: "V4 Submersible", hp: "3", supply: "3ph", price: 3200 },
-          { id: id(), motorType: "V6 Submersible", hp: "5", supply: "3ph", price: 5200 },
-          { id: id(), motorType: "Openwell", hp: "5", supply: "3ph", price: 4800 }
-        ]
-      };
-    }
-
-    function loadData() {
-      try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) return JSON.parse(saved);
-        const old = localStorage.getItem(OLD_KEY);
-        if (old) return migrateOld(JSON.parse(old));
-      } catch (error) {}
-      return defaults();
-    }
-
-    function migrateOld(old) {
-      const next = defaults();
-      next.customers = (old.customers || []).map(c => ({ id: c.id || id(), name: c.name, village: c.village, mobile: c.mobile, notes: "" }));
-      next.transactions = (old.jobs || []).map(job => ({
-        id: job.id || id(),
-        customerId: job.customerId,
-        type: "job",
-        date: job.jobDate || today(),
-        company: job.company || "",
-        motorType: job.motorType || "",
-        supply: job.supply || "",
-        hp: job.hp || "",
-        pitch: job.pitch || "",
-        former: job.former || "",
-        connection: "",
-        winding: job.winding || {},
-        items: [{ description: job.serviceType || "Service/Job", qty: 1, price: Number(job.amount || 0) }],
-        paid: Number(job.paid || 0),
-        notes: job.notes || ""
-      }));
-      if (old.prices) next.rewindingRates = old.prices.map(p => ({ id: p.id || id(), motorType: p.motorType, hp: p.hp, supply: p.supply, price: Number(p.price || 0) }));
-      return next;
-    }
-
-    function saveData() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      scheduleCloudSave();
-    }
-    function setSyncStatus(text, state = "ok") {
-      const status = document.getElementById("syncStatus");
-      const dot = document.getElementById("syncDot");
-      if (status) status.textContent = text;
-      if (dot) dot.style.background = state === "error" ? "var(--red)" : state === "saving" ? "var(--amber)" : "var(--green)";
-    }
-    function cloudRef() { return firestore.collection(CLOUD_COLLECTION).doc(CLOUD_DOC); }
-    function scheduleCloudSave() {
-      if (!currentUser || applyingCloudData) return;
-      clearTimeout(cloudSaveTimer);
-      setSyncStatus("Saving online", "saving");
-      cloudSaveTimer = setTimeout(pushCloudData, 650);
-    }
-    async function pushCloudData() {
-      if (!currentUser) return;
-      try {
-        await cloudRef().set({
-          data,
-          updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
-          updatedBy: currentUser.email
-        }, { merge: true });
-        setSyncStatus("Saved online");
-      } catch (error) {
-        console.error(error);
-        setSyncStatus("Online save failed", "error");
-      }
-    }
-    function startCloudSync(user) {
-      currentUser = user;
-      if (unsubscribeCloud) unsubscribeCloud();
-      setSyncStatus("Connecting online", "saving");
-      unsubscribeCloud = cloudRef().onSnapshot(async snapshot => {
-        if (snapshot.exists) {
-          const cloud = snapshot.data();
-          if (cloud && cloud.data) {
-            applyingCloudData = true;
-            data = normalizeData(cloud.data);
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-            selectedCustomerId = data.customers[0]?.id || selectedCustomerId;
-            renderAll();
-            applyingCloudData = false;
-            setSyncStatus("Live online");
-          }
-        } else {
-          await pushCloudData();
-        }
-      }, error => {
-        console.error(error);
-        setSyncStatus("Online sync failed", "error");
-      });
-    }
-    function normalizeData(next) {
-      const base = defaults();
-      return {
-        customers: Array.isArray(next.customers) ? next.customers : base.customers,
-        transactions: Array.isArray(next.transactions) ? next.transactions : base.transactions,
-        materials: Array.isArray(next.materials) ? next.materials : base.materials,
-        rewindingRates: Array.isArray(next.rewindingRates) ? next.rewindingRates : base.rewindingRates
-      };
-    }
-    function getCustomer(customerId = selectedCustomerId) { return data.customers.find(c => c.id === customerId); }
-    function customerTransactions(customerId = selectedCustomerId) {
-      return data.transactions.filter(t => t.customerId === customerId).sort((a, b) => (b.date || "").localeCompare(a.date || ""));
-    }
-    function transactionTotal(t) { return t.type === "payment" ? Number(t.amount || 0) : (t.items || []).reduce((sum, item) => sum + Number(item.qty || 0) * Number(item.price || 0), 0); }
-    function customerDue(customerId) {
-      return data.transactions.filter(t => t.customerId === customerId).reduce((sum, t) => {
-        return sum + (t.type === "payment" || t.type === "roundoff" ? -Number(t.amount || 0) : transactionTotal(t) - Number(t.paid || 0));
-      }, 0);
-    }
-    function periodValue() {
-      return dashboardMode === "year" ? value("dashYear") : value("dashMonth");
-    }
-    function inDashboardPeriod(date) {
-      const period = periodValue();
-      if (!period) return true;
-      return dashboardMode === "year" ? String(date || "").startsWith(period) : String(date || "").startsWith(period);
-    }
-    function customerName(customerId) {
-      const c = data.customers.find(item => item.id === customerId);
-      return c ? `${c.name}${c.village ? " - " + c.village : ""}` : "Unknown customer";
-    }
-    function getRewindingRate() {
-      const match = data.rewindingRates.find(r => norm(r.motorType) === norm(value("jobMotorType")) && norm(r.hp) === norm(value("jobHp")) && norm(r.supply) === norm(value("jobSupply")));
-      return Number(match?.price || 0);
-    }
-    function liftingCharge(feet) {
-      const ft = Number(feet || 0);
-      if (!ft) return 0;
-      return ft <= 300 ? 1500 : ft * 5;
-    }
-
-    function renderDashboard() {
-      const periodTransactions = data.transactions.filter(t => inDashboardPeriod(t.date));
-      const receivedThisMonth = periodTransactions.reduce((sum, t) => sum + (t.type === "payment" ? Number(t.amount || 0) : Number(t.paid || 0)), 0);
-      const totalDue = data.customers.reduce((sum, c) => sum + Math.max(customerDue(c.id), 0), 0);
-      document.getElementById("metricCustomers").textContent = data.customers.length;
-      document.getElementById("metricJobs").textContent = periodTransactions.filter(t => t.type === "job").length;
-      document.getElementById("metricReceivedLabel").textContent = dashboardMode === "year" ? "Selected year received" : "Selected month received";
-      document.getElementById("metricMonth").textContent = money(receivedThisMonth);
-      document.getElementById("metricDue").textContent = money(totalDue);
-      renderPendingCustomers();
-      renderChart();
-      renderDashboardDrilldown(activeDrill);
-    }
-
-    function renderPendingCustomers() {
-      const rows = data.customers.map(c => ({ ...c, due: customerDue(c.id) })).filter(c => c.due > 0).sort((a, b) => b.due - a.due).slice(0, 10);
-      document.getElementById("pendingCustomers").innerHTML = rows.length ? rows.map(c => `
-        <div class="card" style="padding: 12px;">
-          <strong>${escapeHtml(c.name)}</strong>
-          <div class="muted small">${escapeHtml(c.village || "")}</div>
-          <div class="due">${money(c.due)}</div>
-        </div>
-      `).join("") : `<div class="empty">No pending payments.</div>`;
-    }
-
-    function renderChart() {
-      const canvas = document.getElementById("monthlyChart");
-      const ctx = canvas.getContext("2d");
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const labels = [];
-      if (dashboardMode === "year") {
-        const year = value("dashYear") || today().slice(0, 4);
-        for (let m = 1; m <= 12; m++) labels.push(`${year}-${String(m).padStart(2, "0")}`);
-        document.getElementById("chartTitle").textContent = `Month-wise received payments in ${year}`;
-      } else {
-        const selected = value("dashMonth") || today().slice(0, 7);
-        const selectedDate = new Date(selected + "-01T00:00:00");
-        for (let i = 5; i >= 0; i--) labels.push(new Date(selectedDate.getFullYear(), selectedDate.getMonth() - i, 1).toISOString().slice(0, 7));
-        document.getElementById("chartTitle").textContent = "Recent month-wise received payments";
-      }
-      const values = labels.map(month => data.transactions.filter(t => (t.date || "").startsWith(month)).reduce((sum, t) => sum + (t.type === "payment" ? Number(t.amount || 0) : Number(t.paid || 0)), 0));
-      const max = Math.max(...values, 1);
-      ctx.strokeStyle = "#dce4ee"; ctx.beginPath(); ctx.moveTo(55, 25); ctx.lineTo(55, 260); ctx.lineTo(860, 260); ctx.stroke();
-      values.forEach((amount, index) => {
-        const barStep = dashboardMode === "year" ? 64 : 132;
-        const barWidth = dashboardMode === "year" ? 38 : 72;
-        const x = 70 + index * barStep;
-        const h = (amount / max) * 190;
-        ctx.fillStyle = index % 2 ? "#14905f" : "#2563eb";
-        ctx.fillRect(x, 260 - h, barWidth, h || 2);
-        ctx.fillStyle = "#0f1d2e"; ctx.font = "12px Inter, Arial"; ctx.fillText(money(amount), x - 8, 248 - h);
-        ctx.fillStyle = "#687789"; ctx.font = "12px Inter, Arial"; ctx.fillText(labels[index].slice(5) + "/" + labels[index].slice(2, 4), x + 2, 285);
-      });
-    }
-
-    function renderDashboardDrilldown(kind) {
-      activeDrill = kind || activeDrill;
-      const box = document.getElementById("dashboardDrilldown");
-      if (!box) return;
-      const periodLabel = dashboardMode === "year" ? `year ${periodValue()}` : `month ${periodValue()}`;
-      let title = "";
-      let rows = [];
-      if (activeDrill === "received") {
-        title = `Payments received in ${periodLabel}`;
-        rows = data.transactions.filter(t => inDashboardPeriod(t.date) && (t.type === "payment" || Number(t.paid || 0) > 0)).map(t => ({
-          name: customerName(t.customerId),
-          sub: `${formatDate(t.date)}${t.type === "job" ? " - advance in job" : ""}`,
-          amount: t.type === "payment" ? Number(t.amount || 0) : Number(t.paid || 0),
-          customerId: t.customerId
-        }));
-      } else if (activeDrill === "jobs") {
-        title = `Jobs in ${periodLabel}`;
-        rows = data.transactions.filter(t => inDashboardPeriod(t.date) && t.type === "job").map(t => ({
-          name: customerName(t.customerId),
-          sub: `${formatDate(t.date)} - ${(t.items || []).map(i => i.description).join(", ")}`,
-          amount: transactionTotal(t),
-          customerId: t.customerId
-        }));
-      } else if (activeDrill === "due") {
-        title = "Customers with pending amount";
-        rows = data.customers.map(c => ({ name: c.name, sub: c.village || "", amount: Math.max(customerDue(c.id), 0), customerId: c.id })).filter(r => r.amount > 0);
-      } else {
-        title = "All customers";
-        rows = data.customers.map(c => ({ name: c.name, sub: `${c.village || ""} ${c.mobile || ""}`, amount: customerDue(c.id), customerId: c.id }));
-      }
-      rows.sort((a, b) => b.amount - a.amount);
-      box.innerHTML = `
-        <h3>${title}<span class="small muted">${rows.length} records</span></h3>
-        <div class="list">
-          ${rows.length ? rows.map(row => `
-            <div class="info-row">
-              <div><strong>${escapeHtml(row.name)}</strong><div class="small muted">${escapeHtml(row.sub)}</div></div>
-              <div class="right"><strong>${money(row.amount)}</strong><br><button class="secondary" onclick="selectedCustomerId='${row.customerId}'; switchTab('customersView');">Open</button></div>
-            </div>
-          `).join("") : `<div class="empty">No data for this selection.</div>`}
-        </div>
-      `;
-    }
-
-    function renderCustomers() {
-      const query = norm(value("customerSearch"));
-      const customers = data.customers.filter(c => [c.name, c.village, c.mobile, c.notes].some(v => norm(v).includes(query)));
-      document.getElementById("customerList").innerHTML = customers.length ? customers.map(c => `
-        <div class="customer-item ${c.id === selectedCustomerId ? "active" : ""}" onclick="selectCustomer('${c.id}')">
-          <div><strong>${escapeHtml(c.name)}</strong><span class="small muted">${escapeHtml(c.village || "")}</span></div>
-          <div class="right due">${money(Math.max(customerDue(c.id), 0))}</div>
-        </div>
-      `).join("") : `<div class="empty">No customers found.</div>`;
-      renderCustomerDetail();
-    }
-
-    function selectCustomer(customerId) {
-      selectedCustomerId = customerId;
-      pendingDeleteId = null;
-      renderCustomers();
-    }
-
-    function renderCustomerDetail() {
-      const c = getCustomer();
-      const detail = document.getElementById("customerDetail");
-      if (!c) {
-        detail.innerHTML = `<div class="empty">Add or select a customer to see full history.</div>`;
-        return;
-      }
-      const due = customerDue(c.id);
-      const transactions = customerTransactions(c.id);
-      const historyDate = document.getElementById("historyDateFilter")?.value || "";
-      const historySearch = document.getElementById("historySearch")?.value || "";
-      detail.innerHTML = `
-        <div class="row" style="justify-content: space-between;">
+        <a class="map-box" href="https://share.google/WZ0urx8kakllmbY9Q" target="_blank" rel="noreferrer">
           <div>
-            <h3 style="margin: 0;">${escapeHtml(c.name)} <button class="ghost no-print" onclick="openCustomerModal('${c.id}')">Edit</button></h3>
-            <div class="muted">${escapeHtml(c.village || "")}${c.mobile ? " | " + escapeHtml(c.mobile) : ""}</div>
-            <div class="small muted">Owner: Shashikant Sutar 89565618180 | Shubham Sutar 7410555337</div>
+            <strong>Google Map वर workshop पहा</strong>
+            <p>AP, भोस. ता. मिरज, जि. सांगली - 416420</p>
+            <span class="btn dark">Map उघडा</span>
           </div>
-          <div class="actions no-print">
-            <button class="red" onclick="window.print()">Statement</button>
-            <button class="secondary" onclick="sendStatementWhatsApp(false)">WhatsApp</button>
-            <button class="secondary" onclick="roundOffCustomerDue()">Round Off</button>
-            <button class="purple" onclick="openPaymentModal()">Add Payment</button>
-            <button class="green" onclick="openJobModal()">Add Job</button>
+        </a>
+      </div>
+    </section>
+
+    <section class="settings" id="settings">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Settings</h2>
+            <p>येथून website वर दिसणारी माहिती आणि फोटो बदलता येतील. हे बदल या browser मध्ये save होतील.</p>
+          </div>
+          <button class="btn" type="button" id="resetSettings">Default करा</button>
+        </div>
+        <div class="settings-grid">
+          <div class="settings-card">
+            <label>Workshop नाव
+              <input id="setBusinessName" type="text">
+            </label>
+            <label>Hero text
+              <textarea id="setHeroText"></textarea>
+            </label>
+            <label>Crane text
+              <textarea id="setCraneText"></textarea>
+            </label>
+            <label>पत्ता
+              <textarea id="setAddress"></textarea>
+            </label>
+            <label>फोन text
+              <input id="setPhoneText" type="text">
+            </label>
+            <label>Email
+              <input id="setEmail" type="email">
+            </label>
+            <label>Primary phone number
+              <input id="setPrimaryPhone" type="tel">
+            </label>
+            <button class="btn" type="button" id="saveContent">माहिती Save करा</button>
+          </div>
+          <div class="settings-card">
+            <label>Logo upload
+              <input id="uploadLogo" type="file" accept="image/*">
+            </label>
+            <label>Hero / crane photo upload
+              <input id="uploadHero" type="file" accept="image/*">
+            </label>
+            <label>Gallery photo 1
+              <input class="gallery-upload" data-target="gallery1" type="file" accept="image/*">
+            </label>
+            <label>Gallery photo 2
+              <input class="gallery-upload" data-target="gallery2" type="file" accept="image/*">
+            </label>
+            <label>Gallery photo 3
+              <input class="gallery-upload" data-target="gallery3" type="file" accept="image/*">
+            </label>
+            <label>Gallery photo 4
+              <input class="gallery-upload" data-target="gallery4" type="file" accept="image/*">
+            </label>
+            <label>Gallery photo 5
+              <input class="gallery-upload" data-target="gallery5" type="file" accept="image/*">
+            </label>
+            <p class="note">GitHub Pages static असल्यामुळे upload केलेले फोटो तुमच्या browser मध्ये राहतात. कायमस्वरूपी publish करायचे असल्यास फोटो repository मध्ये add करून पुन्हा deploy करा.</p>
           </div>
         </div>
-        <div class="due-box"><span>Total Amount Due</span><strong>${money(Math.max(due, 0))}</strong></div>
-        <div class="row" style="justify-content: space-between; margin-bottom: 10px;">
-          <h3 style="margin: 0;">Transaction History</h3>
-          <div class="row no-print">
-            <input id="historyDateFilter" type="date" value="${escapeHtml(historyDate)}" onchange="renderCustomerDetail()">
-            <input id="historySearch" placeholder="Search jobs..." value="${escapeHtml(historySearch)}" oninput="renderCustomerDetail()">
-            <button class="secondary" onclick="sendStatementWhatsApp(true)">WhatsApp Day</button>
-          </div>
-        </div>
-        <div class="list">${renderHistory(transactions)}</div>
-      `;
-    }
+      </div>
+    </section>
+  </main>
 
-    function renderHistory(transactions) {
-      const dateFilter = document.getElementById("historyDateFilter")?.value || "";
-      const search = norm(document.getElementById("historySearch")?.value || "");
-      const filtered = transactions.filter(t => {
-        const text = [t.company, t.motorType, t.supply, t.hp, t.pitch, t.notes, ...(t.items || []).map(i => i.description)].join(" ");
-        return (!dateFilter || t.date === dateFilter) && (!search || norm(text).includes(search));
-      });
-      if (!filtered.length) return `<div class="empty">No transaction history yet.</div>`;
-      return filtered.map(t => t.type === "payment" || t.type === "roundoff" ? paymentHtml(t) : jobHtml(t)).join("");
-    }
+  <footer class="footer">
+    <div class="wrap">
+      <span>© <span id="year"></span> ब्रह्मचैतन्य सबमर्सिबल सर्विसेस</span>
+      <span>Submersible motor service, induction motor repair आणि borewell lifting.</span>
+    </div>
+  </footer>
 
-    function paymentHtml(t) {
-      return `
-        <article class="history-card ${t.type === "roundoff" ? "roundoff" : "payment"}">
-          <div class="history-head">
-            <div><h4>${t.type === "roundoff" ? "Round Off / Discount" : "Payment Received"}</h4><div class="small muted">${escapeHtml(formatDate(t.date))}</div></div>
-            <div><span class="amount">- ${money(t.amount)}</span>${miniActions(t)}</div>
-          </div>
-          ${t.notes ? `<div class="small">${escapeHtml(t.notes)}</div>` : ""}
-        </article>
-      `;
-    }
+  <script>
+    const defaults = {
+      businessName: "ब्रह्मचैतन्य सबमर्सिबल सर्विसेस",
+      heroText: "V4, V6, ओपनवेल, इंडक्शन, मोनोब्लॉक आणि घरगुती पंपांची देखभाल व दुरुस्ती अनुभवी पद्धतीने केली जाते.",
+      craneText: "आमच्याकडे बोअरवेल मोटर लवकर वर काढण्यासाठी क्रेन सुविधा आहे. त्यामुळे वेळ, मेहनत आणि manpower कमी लागते.",
+      address: "AP, भोस. तालुका मिरज, जिल्हा सांगली - 416420",
+      phoneText: "शुभम सुतार: 7410555337 | शशिकांत सुतार: 89565618180",
+      email: "shubhamsutar789@gmail.com",
+      primaryPhone: "7410555337"
+    };
 
-    function jobHtml(t) {
-      const total = transactionTotal(t);
-      return `
-        <article class="history-card">
-          <div class="history-head">
-            <div>
-              <h4>Service/Job</h4>
-              <div class="small muted">${escapeHtml(formatDate(t.date))}</div>
-            </div>
-            <div><span class="amount">${money(total)}</span>${miniActions(t)}</div>
-          </div>
-          ${jobDetailBlock(t)}
-          <table>
-            <thead><tr><th>Description</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead>
-            <tbody>
-              ${(t.items || []).map(item => `<tr><td>${escapeHtml(item.description)}</td><td>${escapeHtml(item.qty)}</td><td>${money(item.price)}</td><td>${money(Number(item.qty || 0) * Number(item.price || 0))}</td></tr>`).join("")}
-              <tr><td colspan="3" class="right"><strong>Grand Total</strong></td><td><strong>${money(total)}</strong></td></tr>
-              ${t.paid ? `<tr><td colspan="3" class="right received">Paid/Advance</td><td class="received">- ${money(t.paid)}</td></tr>` : ""}
-            </tbody>
-          </table>
-          ${t.notes ? `<p class="small"><strong>Notes:</strong> ${escapeHtml(t.notes)}</p>` : ""}
-        </article>
-      `;
-    }
+    const storageKey = "bssWebsiteSettings";
+    const imageKey = "bssWebsiteImages";
+    const getSettings = () => ({ ...defaults, ...JSON.parse(localStorage.getItem(storageKey) || "{}") });
+    const getImages = () => JSON.parse(localStorage.getItem(imageKey) || "{}");
 
-    function miniActions(t) {
-      if (t.type === "job") {
-        return `
-          <div class="mini-actions no-print">
-            <button class="secondary" onclick="showJobDetails('${t.id}')">Details</button>
-            <button class="secondary" onclick="printJob('${t.id}')">PDF</button>
-            <button class="secondary" onclick="sendJobWhatsApp('${t.id}')">WhatsApp</button>
-            <button class="secondary" onclick="editJob('${t.id}')">Edit</button>
-            <button class="secondary" onclick="deleteTransaction('${t.id}')">${pendingDeleteId === t.id ? "Confirm" : "Delete"}</button>
-          </div>
-        `;
-      }
-      return `
-        <div class="mini-actions no-print">
-          <button class="secondary" onclick="downloadStatement('${t.customerId}')">Statement PDF</button>
-          <button class="secondary" onclick="${t.type === "payment" || t.type === "roundoff" ? `editPayment('${t.id}')` : `editJob('${t.id}')`}">Edit</button>
-          <button class="secondary" onclick="deleteTransaction('${t.id}')">${pendingDeleteId === t.id ? "Confirm" : "Delete"}</button>
-        </div>
-      `;
-    }
-
-    function jobDetailBlock(t) {
-      return `
-        <div class="detail-grid">
-          <div class="detail-pill"><span>Company</span><strong>${escapeHtml(t.company || "-")}</strong></div>
-          <div class="detail-pill"><span>Motor</span><strong>${escapeHtml(t.motorType || "-")}</strong></div>
-          <div class="detail-pill"><span>HP / Stage</span><strong>${escapeHtml(t.hp || "-")}</strong></div>
-          <div class="detail-pill"><span>Phase</span><strong>${escapeHtml(t.supply || "-")}</strong></div>
-          <div class="detail-pill"><span>Pitch</span><strong>${escapeHtml(t.pitch || "-")}</strong></div>
-          <div class="detail-pill"><span>Former</span><strong>${escapeHtml(t.former || "-")}</strong></div>
-          <div class="detail-pill"><span>Connection</span><strong>${escapeHtml(t.connection || "-")}</strong></div>
-          <div class="detail-pill"><span>Borewell ft</span><strong>${escapeHtml(t.boreFeet || "-")}</strong></div>
-        </div>
-        ${windingDetailsTable(t)}
-      `;
-    }
-
-    function windingSummary(t) {
-      const entries = Object.entries(t.winding || {}).filter(([, v]) => v);
-      if (!entries.length) return "";
-      return `<div class="small muted" style="margin-top: 8px;">${entries.map(([k, v]) => `${label(k)}: ${escapeHtml(v)}`).join(" | ")}</div>`;
-    }
-
-    function windingDetailsTable(t) {
-      const entries = Object.entries(t.winding || {}).filter(([, v]) => v);
-      if (!entries.length) return "";
-      return `
-        <table style="margin: 8px 0 12px;">
-          <thead><tr><th>Winding Data</th><th>Value</th></tr></thead>
-          <tbody>${entries.map(([k, v]) => `<tr><td>${escapeHtml(label(k))}</td><td>${escapeHtml(v)}${norm(k).includes("weight") ? " KG" : ""}</td></tr>`).join("")}</tbody>
-        </table>
-      `;
-    }
-
-    function label(key) { return key.replace(/([A-Z])/g, " $1").replace(/^./, c => c.toUpperCase()); }
-    function formatDate(date) {
-      if (!date) return "";
-      const d = new Date(date + "T00:00:00");
-      return d.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
-    }
-
-    function openCustomerModal(customerId = null) {
-      editingCustomerId = customerId;
-      const c = customerId ? getCustomer(customerId) : {};
-      document.getElementById("customerModalTitle").textContent = customerId ? "Edit Customer" : "New Customer";
-      setValue("custName", c?.name); setValue("custVillage", c?.village); setValue("custMobile", c?.mobile); setValue("custNotes", c?.notes);
-      openModal("customerModal");
-    }
-
-    function saveCustomer(event) {
-      event.preventDefault();
-      const customer = { id: editingCustomerId || id(), name: value("custName"), village: value("custVillage"), mobile: value("custMobile"), notes: value("custNotes") };
-      if (editingCustomerId) data.customers = data.customers.map(c => c.id === editingCustomerId ? customer : c);
-      else data.customers.unshift(customer);
-      selectedCustomerId = customer.id;
-      editingCustomerId = null;
-      saveData(); closeModals(); renderAll(); toast("Customer saved");
-    }
-
-    function openJobModal(transactionId = null) {
-      if (!selectedCustomerId) return toast("Select customer first");
-      editingTransactionId = transactionId;
-      fillSelects();
-      resetJobForm();
-      if (transactionId) {
-        const t = data.transactions.find(item => item.id === transactionId);
-        setValue("jobDate", t.date); setValue("jobCompany", t.company); setValue("jobHp", t.hp); setValue("jobMotorType", t.motorType); setValue("jobSupply", t.supply);
-        refreshPitch(); setValue("jobPitch", t.pitch); refreshConnectionOptions(); setValue("jobFormer", t.former); setValue("jobConnection", t.connection);
-        renderWindingFields(t.winding || {});
-        setValue("jobNotes", t.notes); setValue("jobPaid", t.paid || 0);
-        renderItemRows(t.items || []);
-        document.getElementById("includeRewinding").checked = (t.items || []).some(item => norm(item.description).includes("rewinding"));
-        document.getElementById("includeLifting").checked = (t.items || []).some(item => norm(item.description).startsWith("lifting motor"));
-        document.getElementById("includeUnlifting").checked = (t.items || []).some(item => norm(item.description).startsWith("unlifting motor"));
-        setValue("boreFeet", t.boreFeet || "");
-      }
-      document.getElementById("jobTitle").textContent = transactionId ? "Edit Job" : `New Job for ${getCustomer()?.name || ""}`;
-      openModal("jobModal");
-      recalcJob();
-    }
-
-    function editJob(idValue) { closeModals(); openJobModal(idValue); }
-
-    function resetJobForm() {
-      document.getElementById("jobForm").reset();
-      setValue("jobDate", today()); setValue("jobPaid", 0);
-      renderItemRows([]);
-      refreshPitch();
-      refreshConnectionOptions();
-    }
-
-    function fillSelects() {
-      ["jobMotorType", "rateMotorType"].forEach(selectId => {
-        document.getElementById(selectId).innerHTML = motorTypes.map(type => `<option>${type}</option>`).join("");
-      });
-      ["globalMotorType", "motorTypeFilter"].forEach(selectId => {
-        const select = document.getElementById(selectId);
-        if (select) {
-          const current = select.value;
-          select.innerHTML = `<option value="">All</option>` + motorTypes.map(type => `<option>${type}</option>`).join("");
-          select.value = current;
-        }
-      });
-      fillGlobalCustomerSelect();
-    }
-
-    function refreshPitch() {
-      const supply = value("jobSupply") || "3ph";
-      const options = pitchOptions[supply] || pitchOptions["3ph"];
-      const previous = value("jobPitch");
-      document.getElementById("jobPitch").innerHTML = options.map(o => `<option>${o}</option>`).join("");
-      if (options.includes(previous)) setValue("jobPitch", previous);
-      refreshConnectionOptions();
-      renderWindingFields();
-      syncServiceItems();
-    }
-
-    function refreshConnectionOptions() {
-      const previous = value("jobConnection");
-      const options = value("jobSupply") === "3ph" ? ["Star", "Delta", "Star Delta"] : ["Regular"];
-      document.getElementById("jobConnection").innerHTML = options.map(option => `<option>${option}</option>`).join("");
-      setValue("jobConnection", options.includes(previous) ? previous : options[0]);
-    }
-
-    function selectedPitches() {
-      return value("jobPitch").split(",").map(p => p.trim()).filter(Boolean);
-    }
-
-    function renderWindingFields(existing = {}) {
-      const splitWinding = value("jobSupply") === "Single phase" || value("jobSupply") === "2ph";
-      const fields = document.getElementById("windingFields");
-      if (splitWinding) {
-        const pitches = selectedPitches();
-        fields.innerHTML = `
-          <div class="winding-table">
-            <div class="winding-line">
-              <strong>Running turns</strong>
-              ${pitches.map(pitch => `<label>${pitch}<input data-winding="runningTurns_${pitch}" value="${existing["runningTurns_" + pitch] || ""}"></label>`).join("")}
-            </div>
-            <div class="winding-line">
-              <strong>Starting turns</strong>
-              ${pitches.map(pitch => `<label>${pitch}<input data-winding="startingTurns_${pitch}" value="${existing["startingTurns_" + pitch] || ""}"></label>`).join("")}
-            </div>
-            <div class="winding-line">
-              <strong>Wire gauge</strong>
-              <label>Running<input data-winding="runningGauge" value="${existing.runningGauge || ""}"></label>
-              <label>Starting<input data-winding="startingGauge" value="${existing.startingGauge || ""}"></label>
-              <label>Running weight KG<input data-winding="runningWeight" value="${existing.runningWeight || ""}"></label>
-              <label>Starting weight KG<input data-winding="startingWeight" value="${existing.startingWeight || ""}"></label>
-            </div>
-          </div>
-        `;
-      } else {
-        fields.innerHTML = `
-          <div class="form-grid">
-            <label style="grid-column: span 4;">Turns for 1-10 and 1-12<input data-winding="turns" value="${existing.turns || ""}"></label>
-            <label style="grid-column: span 4;">Wire gauge<input data-winding="wireGauge" value="${existing.wireGauge || ""}"></label>
-            <label style="grid-column: span 4;">Total wire weight KG<input data-winding="wireWeight" value="${existing.wireWeight || ""}"></label>
-          </div>
-        `;
-      }
-    }
-
-    function collectWinding() {
-      const result = {};
-      document.querySelectorAll("[data-winding]").forEach(input => result[input.dataset.winding] = input.value.trim());
-      return result;
-    }
-
-    function addItemRow(item = {}) {
-      const rows = currentItems();
-      rows.push({ description: item.description || "", qty: item.qty || 1, price: item.price || 0 });
-      renderItemRows(rows);
-    }
-
-    function renderItemRows(items) {
-      const rows = document.getElementById("itemRows");
-      rows.innerHTML = items.map((item, index) => `
-        <div class="item-row" data-item-row data-service="${escapeHtml(item.service || "")}">
-          <label>Description
-            <input list="materialList" data-item="description" value="${escapeHtml(item.description || "")}" placeholder="Material or work name">
-          </label>
-          <label>Qty<input data-item="qty" type="number" min="0" step="0.01" value="${item.qty || 1}"></label>
-          <label>Price<input data-item="price" type="number" min="0" step="1" value="${item.price || 0}"></label>
-          <label>Total<input readonly value="${Number(item.qty || 0) * Number(item.price || 0)}"></label>
-          <button type="button" class="secondary remove-item" onclick="removeItemRow(${index})">x</button>
-        </div>
-      `).join("") + `<datalist id="materialList">${data.materials.map(m => `<option value="${escapeHtml(m.name)}">`).join("")}</datalist>`;
-      rows.querySelectorAll("input").forEach(input => input.addEventListener("input", handleItemInput));
-      recalcJob();
-    }
-
-    function handleItemInput(event) {
-      if (event.target.dataset.item === "description") {
-        const material = data.materials.find(m => norm(m.name) === norm(event.target.value));
-        if (material) event.target.closest("[data-item-row]").querySelector('[data-item="price"]').value = material.price;
-      }
-      recalcJob();
-    }
-
-    function removeItemRow(index) {
-      const items = currentItems();
-      items.splice(index, 1);
-      renderItemRows(items);
-    }
-
-    function currentItems() {
-      return [...document.querySelectorAll("[data-item-row]")].map(row => ({
-        service: row.dataset.service || "",
-        description: row.querySelector('[data-item="description"]').value.trim(),
-        qty: Number(row.querySelector('[data-item="qty"]').value || 0),
-        price: Number(row.querySelector('[data-item="price"]').value || 0)
-      })).filter(item => item.description || item.qty || item.price);
-    }
-
-    function syncServiceItems() {
-      let items = currentItems();
-      items = syncOneService(items, "rewinding", document.getElementById("includeRewinding").checked, "Motor Rewinding", getRewindingRate());
-      const lift = liftingCharge(value("boreFeet"));
-      items = syncOneService(items, "lifting", document.getElementById("includeLifting").checked, `Lifting motor (${value("boreFeet") || 0} ft)`, lift);
-      items = syncOneService(items, "unlifting", document.getElementById("includeUnlifting").checked, `Unlifting motor (${value("boreFeet") || 0} ft)`, lift);
-      renderItemRows(items);
-    }
-
-    function syncOneService(items, service, enabled, description, price) {
-      const index = items.findIndex(item => item.service === service || serviceMatches(item.description, service));
-      if (!enabled) return index >= 0 ? items.filter((_, i) => i !== index) : items;
-      if (index >= 0) {
-        items[index] = { ...items[index], service, description, qty: items[index].qty || 1, price: Number(price || items[index].price || 0) };
-        return items;
-      }
-      return [...items, { service, description, qty: 1, price }];
-    }
-
-    function serviceMatches(description, service) {
-      const text = norm(description);
-      if (service === "rewinding") return text.includes("rewinding");
-      if (service === "lifting") return text.startsWith("lifting motor");
-      if (service === "unlifting") return text.startsWith("unlifting motor");
-      return false;
-    }
-
-    function builtInItems() {
-      return [];
-    }
-
-    function recalcJob() {
-      const total = currentItems().reduce((sum, item) => sum + Number(item.qty || 0) * Number(item.price || 0), 0);
-      document.getElementById("jobGrandTotal").textContent = money(total);
-    }
-
-    function saveJob(event) {
-      event.preventDefault();
-      const items = currentItems().filter(item => item.description && Number(item.price || 0) >= 0);
-      const transaction = {
-        id: editingTransactionId || id(),
-        customerId: selectedCustomerId,
-        type: "job",
-        date: value("jobDate"),
-        company: value("jobCompany"),
-        hp: value("jobHp"),
-        motorType: value("jobMotorType"),
-        supply: value("jobSupply"),
-        pitch: value("jobPitch"),
-        former: value("jobFormer"),
-        connection: value("jobConnection"),
-        winding: collectWinding(),
-        boreFeet: value("boreFeet"),
-        items,
-        paid: Number(value("jobPaid") || 0),
-        notes: value("jobNotes")
+    function phoneHref(number) {
+      const cleaned = String(number || "").replace(/[^\d]/g, "");
+      const withCountry = cleaned.length === 10 ? `91${cleaned}` : cleaned;
+      return {
+        tel: `tel:+${withCountry}`,
+        whatsapp: `https://wa.me/${withCountry}`
       };
-      upsertTransaction(transaction);
-      closeModals(); renderAll(); toast("Job saved");
     }
 
-    function openPaymentModal(idValue = null) {
-      if (!selectedCustomerId) return toast("Select customer first");
-      editingTransactionId = idValue;
-      const t = idValue ? data.transactions.find(item => item.id === idValue) : {};
-      setValue("paymentDate", t?.date || today()); setValue("paymentAmount", t?.amount || ""); setValue("paymentNotes", t?.notes || "");
-      document.getElementById("paymentRoundoff").checked = t?.type === "roundoff";
-      openModal("paymentModal");
+    function renderImage(containerId, src, alt) {
+      const node = document.getElementById(containerId);
+      if (!node || !src) return;
+      node.innerHTML = "";
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = alt;
+      node.appendChild(img);
     }
 
-    function editPayment(idValue) { openPaymentModal(idValue); }
-
-    function savePayment(event) {
-      event.preventDefault();
-      const isRoundoff = document.getElementById("paymentRoundoff").checked;
-      const amount = Number(value("paymentAmount") || 0);
-      upsertTransaction({ id: editingTransactionId || id(), customerId: selectedCustomerId, type: isRoundoff ? "roundoff" : "payment", date: value("paymentDate"), amount, notes: value("paymentNotes") || (isRoundoff ? "Remaining balance rounded off as discount" : "") });
-      closeModals(); renderAll(); toast(isRoundoff ? "Round off saved" : "Payment saved");
-    }
-
-    function roundOffCustomerDue() {
-      const due = Math.max(customerDue(selectedCustomerId), 0);
-      if (!due) return toast("No pending balance to round off");
-      upsertTransaction({
-        id: id(),
-        customerId: selectedCustomerId,
-        type: "roundoff",
-        date: today(),
-        amount: due,
-        notes: "Remaining balance rounded off as discount"
+    function applySettings() {
+      const settings = getSettings();
+      const images = getImages();
+      document.querySelectorAll("[data-edit]").forEach((node) => {
+        const key = node.dataset.edit;
+        node.textContent = settings[key] || defaults[key] || "";
       });
-      renderAll();
-      toast("Pending amount rounded off");
-    }
-
-    function statementRowsForCustomer() {
-      const dateFilter = document.getElementById("historyDateFilter")?.value || "";
-      return customerTransactions(selectedCustomerId).filter(t => !dateFilter || t.date === dateFilter);
-    }
-
-    function sendStatementWhatsApp(requireDate = false) {
-      const c = getCustomer();
-      if (!c) return toast("Select customer first");
-      const rows = statementRowsForCustomer();
-      const dateFilter = document.getElementById("historyDateFilter")?.value || "";
-      if (requireDate && !dateFilter) return toast("Select a date first for day statement");
-      const lines = [
-        "Bramhachitanya Submersible Services",
-        `Statement for ${c.name}`,
-        c.village ? `Village: ${c.village}` : "",
-        dateFilter ? `Date: ${formatDate(dateFilter)}` : "Full statement",
-        ""
-      ].filter(Boolean);
-      rows.slice().reverse().forEach(t => {
-        if (t.type === "job") lines.push(`${formatDate(t.date)} Job: ${money(transactionTotal(t))} - ${(t.items || []).map(i => i.description).join(", ")}`);
-        if (t.type === "payment") lines.push(`${formatDate(t.date)} Payment: - ${money(t.amount)}`);
-        if (t.type === "roundoff") lines.push(`${formatDate(t.date)} Round off: - ${money(t.amount)}`);
-      });
-      lines.push("");
-      lines.push(`Balance Due: ${money(Math.max(customerDue(c.id), 0))}`);
-      lines.push(...ownerLines());
-      lines.push("PDF can be downloaded from Statement button.");
-      const phone = String(c.mobile || "").replace(/\D/g, "").slice(-10);
-      const url = `https://wa.me/${phone ? "91" + phone : ""}?text=${encodeURIComponent(lines.join("\n"))}`;
-      window.open(url, "_blank");
-    }
-
-    function jobById(jobId) {
-      return data.transactions.find(t => t.id === jobId && t.type === "job");
-    }
-
-    function jobStatementHtml(jobId) {
-      const t = jobById(jobId);
-      if (!t) return "";
-      const c = data.customers.find(item => item.id === t.customerId) || {};
-      const received = Number(t.paid || 0);
-      const balance = Math.max(transactionTotal(t) - received, 0);
-      return `
-        <div style="font-family: Inter, Arial, sans-serif; color: #0f1d2e; padding: 22px;">
-          <h2 style="margin: 0;">Bramhachitanya Submersible Services</h2>
-          <p style="margin: 6px 0 12px;">Submersible motor service, lifting and rewinding</p>
-          <p style="margin: 0;"><strong>Shashikant Sutar:</strong> 89565618180 &nbsp; <strong>Shubham Sutar:</strong> 7410555337</p>
-          <hr>
-          <h3>Specific Job Statement</h3>
-          <p><strong>Customer:</strong> ${escapeHtml(c.name || "")}<br><strong>Village:</strong> ${escapeHtml(c.village || "")}<br><strong>Mobile:</strong> ${escapeHtml(c.mobile || "")}<br><strong>Date:</strong> ${escapeHtml(formatDate(t.date))}</p>
-          ${jobDetailBlock(t)}
-          <table>
-            <thead><tr><th>Description</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead>
-            <tbody>
-              ${(t.items || []).map(item => `<tr><td>${escapeHtml(item.description)}</td><td>${escapeHtml(item.qty)}</td><td>${money(item.price)}</td><td>${money(Number(item.qty || 0) * Number(item.price || 0))}</td></tr>`).join("")}
-              <tr><td colspan="3" class="right"><strong>Grand Total</strong></td><td><strong>${money(transactionTotal(t))}</strong></td></tr>
-              <tr><td colspan="3" class="right"><strong>Received</strong></td><td><strong>${money(received)}</strong></td></tr>
-              <tr><td colspan="3" class="right"><strong>Balance</strong></td><td><strong>${money(balance)}</strong></td></tr>
-            </tbody>
-          </table>
-          ${t.notes ? `<p><strong>Notes:</strong> ${escapeHtml(t.notes)}</p>` : ""}
-        </div>
-      `;
-    }
-
-    function showJobDetails(jobId) {
-      document.getElementById("jobDetailBody").innerHTML = `
-        ${jobStatementHtml(jobId)}
-        <div class="row no-print" style="justify-content: flex-end;">
-          <button class="secondary" onclick="printJob('${jobId}')">PDF</button>
-          <button class="green" onclick="sendJobWhatsApp('${jobId}')">WhatsApp</button>
-          <button onclick="editJob('${jobId}')">Edit</button>
-        </div>
-      `;
-      openModal("jobDetailModal");
-    }
-
-    function printJob(jobId) {
-      document.getElementById("printArea").innerHTML = jobStatementHtml(jobId);
-      document.body.classList.add("print-mode");
-      window.onafterprint = () => document.body.classList.remove("print-mode");
-      window.print();
-      setTimeout(() => document.body.classList.remove("print-mode"), 2500);
-    }
-
-    function sendJobWhatsApp(jobId) {
-      const t = jobById(jobId);
-      if (!t) return;
-      const c = data.customers.find(item => item.id === t.customerId) || {};
-      const total = transactionTotal(t);
-      const received = Number(t.paid || 0);
-      const balance = Math.max(total - received, 0);
-      const lines = [
-        "Bramhachitanya Submersible Services",
-        "Specific Job Statement",
-        `Customer: ${c.name || ""}`,
-        c.village ? `Village: ${c.village}` : "",
-        `Date: ${formatDate(t.date)}`,
-        `Motor: ${[t.company, t.motorType, t.hp ? t.hp + " HP" : "", t.supply].filter(Boolean).join(" | ")}`,
-        `Pitch: ${t.pitch || "-"}`,
-        `Connection: ${t.connection || "-"}`,
-        "",
-        ...(t.items || []).map(item => `${item.description} - ${item.qty} x ${money(item.price)} = ${money(Number(item.qty || 0) * Number(item.price || 0))}`),
-        "",
-        `Grand Total: ${money(total)}`,
-        `Received: ${money(received)}`,
-        `Balance: ${money(balance)}`,
-        t.notes ? `Notes: ${t.notes}` : "",
-        "",
-        ...ownerLines(),
-        "PDF can be downloaded from the PDF button."
-      ].filter(Boolean);
-      const phone = phoneForWhatsApp(c.mobile);
-      window.open(`https://wa.me/${phone ? "91" + phone : ""}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank");
-    }
-
-    function upsertTransaction(t) {
-      if (editingTransactionId) data.transactions = data.transactions.map(item => item.id === editingTransactionId ? t : item);
-      else data.transactions.unshift(t);
-      editingTransactionId = null;
-      pendingDeleteId = null;
-      saveData();
-    }
-
-    function deleteTransaction(idValue) {
-      if (pendingDeleteId !== idValue) { pendingDeleteId = idValue; renderAll(); toast("Click Confirm to delete"); return; }
-      data.transactions = data.transactions.filter(t => t.id !== idValue);
-      pendingDeleteId = null;
-      saveData(); renderAll(); toast("Deleted");
-    }
-
-    function renderMaterials() {
-      document.getElementById("materialRows").innerHTML = data.materials.map(m => `
-        <tr><td>${escapeHtml(m.name)}</td><td>${escapeHtml(m.category)}</td><td>${money(m.price)}</td><td><button class="secondary" onclick="deleteMaterial('${m.id}')">Delete</button></td></tr>
-      `).join("");
-      document.getElementById("rewindingRows").innerHTML = data.rewindingRates.map(r => `
-        <tr><td>${escapeHtml(r.motorType)}</td><td>${escapeHtml(r.hp)}</td><td>${escapeHtml(r.supply)}</td><td>${money(r.price)}</td><td><button class="secondary" onclick="deleteRewindingRate('${r.id}')">Delete</button></td></tr>
-      `).join("");
-    }
-
-    function saveMaterial(event) {
-      event.preventDefault();
-      const item = { id: id(), name: value("materialName"), category: value("materialCategory"), price: Number(value("materialPrice") || 0) };
-      data.materials = data.materials.filter(m => norm(m.name) !== norm(item.name));
-      data.materials.push(item);
-      saveData(); document.getElementById("materialForm").reset(); renderAll(); toast("Rate saved");
-    }
-
-    function saveRewindingRate(event) {
-      event.preventDefault();
-      const item = { id: id(), motorType: value("rateMotorType"), hp: value("rateHp"), supply: value("rateSupply"), price: Number(value("ratePrice") || 0) };
-      data.rewindingRates = data.rewindingRates.filter(r => !(norm(r.motorType) === norm(item.motorType) && norm(r.hp) === norm(item.hp) && norm(r.supply) === norm(item.supply)));
-      data.rewindingRates.push(item);
-      saveData(); document.getElementById("rewindingForm").reset(); renderAll(); toast("Rewinding rate saved");
-    }
-
-    function deleteMaterial(idValue) { data.materials = data.materials.filter(m => m.id !== idValue); saveData(); renderAll(); }
-    function deleteRewindingRate(idValue) { data.rewindingRates = data.rewindingRates.filter(r => r.id !== idValue); saveData(); renderAll(); }
-
-    function renderSearch() {
-      fillGlobalCustomerSelect();
-      const q = norm(value("globalSearch"));
-      const type = value("globalType");
-      const month = value("globalMonth");
-      const customerId = value("globalCustomer");
-      const company = norm(value("globalCompany"));
-      const hp = norm(value("globalHp"));
-      const supply = value("globalSupply");
-      const motorType = value("globalMotorType");
-      const rows = data.transactions.filter(t => {
-        const c = data.customers.find(item => item.id === t.customerId) || {};
-        const text = [c.name, c.village, c.mobile, t.company, t.motorType, t.supply, t.hp, t.pitch, t.notes, ...(t.items || []).map(i => i.description)].join(" ");
-        return (!q || norm(text).includes(q)) &&
-          (!type || t.type === type) &&
-          (!month || (t.date || "").startsWith(month)) &&
-          (!customerId || t.customerId === customerId) &&
-          (!company || norm(t.company).includes(company)) &&
-          (!hp || norm(t.hp).includes(hp)) &&
-          (!supply || t.supply === supply) &&
-          (!motorType || t.motorType === motorType);
-      }).sort((a, b) => (b.date || "").localeCompare(a.date || ""));
-      document.getElementById("searchResults").innerHTML = rows.length ? rows.map(t => {
-        const c = data.customers.find(item => item.id === t.customerId) || {};
-        const amount = t.type === "job" ? transactionTotal(t) : Number(t.amount || 0);
-        return `<div class="card" style="padding: 14px;">
-          <div class="row" style="justify-content: space-between;">
-            <div><strong>${escapeHtml(c.name || "Unknown")}</strong><div class="muted small">${escapeHtml(c.village || "")} | ${escapeHtml(formatDate(t.date))}</div></div>
-            <strong class="${t.type === "job" ? "due" : "received"}">${t.type === "job" ? "" : "- "}${money(amount)}</strong>
-          </div>
-          <div class="small muted">${escapeHtml(t.type === "job" ? (t.items || []).map(i => i.description).join(", ") : (t.notes || (t.type === "roundoff" ? "Round Off / Discount" : "Payment Received")))}</div>
-          <div class="row">
-            ${t.type === "job" ? `<button class="secondary" onclick="openMotorData('${t.id}')">Open Motor Data</button><button class="secondary" onclick="showJobDetails('${t.id}')">Job Details</button>` : ""}
-            <button class="secondary" onclick="selectedCustomerId='${t.customerId}'; switchTab('customersView');">Open Customer</button>
-          </div>
-        </div>`;
-      }).join("") : `<div class="empty">No matching records.</div>`;
-    }
-
-    function openMotorData(jobId = null) {
-      focusedMotorId = jobId;
-      switchTab("motorDataView");
-    }
-
-    function renderMotorData() {
-      const q = norm(value("motorSearch"));
-      const company = norm(value("motorCompanyFilter"));
-      const hp = norm(value("motorHpFilter"));
-      const supply = value("motorSupplyFilter");
-      const motorType = value("motorTypeFilter");
-      let jobs = data.transactions.filter(t => t.type === "job");
-      if (focusedMotorId) {
-        const selected = jobs.find(t => t.id === focusedMotorId);
-        jobs = selected ? [selected] : [];
-      } else {
-        jobs = jobs.filter(t => {
-          const c = data.customers.find(item => item.id === t.customerId) || {};
-          const text = [c.name, c.village, c.mobile, t.company, t.motorType, t.supply, t.hp, t.pitch, t.connection].join(" ");
-          return (!q || norm(text).includes(q)) &&
-            (!company || norm(t.company).includes(company)) &&
-            (!hp || norm(t.hp).includes(hp)) &&
-            (!supply || t.supply === supply) &&
-            (!motorType || t.motorType === motorType);
-        });
+      const hrefs = phoneHref(settings.primaryPhone);
+      document.querySelectorAll("[data-edit-href='primaryPhoneHref']").forEach((node) => node.href = hrefs.tel);
+      document.querySelectorAll("[data-edit-href='whatsappHref']").forEach((node) => node.href = hrefs.whatsapp);
+      if (images.logo) {
+        document.getElementById("logoSlot").innerHTML = `<img src="${images.logo}" alt="ब्रह्मचैतन्य सबमर्सिबल सर्विसेस लोगो">`;
       }
-      document.getElementById("motorDataResults").innerHTML = jobs.length ? `
-        ${focusedMotorId ? `<button class="secondary no-print" onclick="focusedMotorId=null; renderMotorData();">Show All Motor Data</button>` : ""}
-        ${jobs.map(t => {
-          const c = data.customers.find(item => item.id === t.customerId) || {};
-          return `<article class="history-card">
-            <div class="history-head">
-              <div><h4>${escapeHtml(c.name || "Unknown")} - ${escapeHtml(t.company || "Motor")}</h4><div class="small muted">${escapeHtml(c.village || "")} | ${escapeHtml(formatDate(t.date))}</div></div>
-              <div class="mini-actions no-print"><button class="secondary" onclick="showJobDetails('${t.id}')">Details</button><button class="secondary" onclick="printJob('${t.id}')">PDF</button><button class="secondary" onclick="sendJobWhatsApp('${t.id}')">WhatsApp</button></div>
-            </div>
-            ${jobDetailBlock(t)}
-          </article>`;
-        }).join("")}
-      ` : `<div class="empty">No motor winding data found.</div>`;
-    }
-
-    function fillGlobalCustomerSelect() {
-      const select = document.getElementById("globalCustomer");
-      if (!select) return;
-      const current = select.value;
-      select.innerHTML = `<option value="">All customers</option>` + data.customers.map(c => `<option value="${c.id}">${escapeHtml(c.name)} - ${escapeHtml(c.village || "")}</option>`).join("");
-      select.value = current;
-    }
-
-    function downloadStatement(customerId) {
-      selectedCustomerId = customerId;
-      renderAll();
-      window.print();
-    }
-
-    function exportBackup() {
-      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "bramhachitanya-workshop-backup-" + today() + ".json";
-      link.click();
-      URL.revokeObjectURL(link.href);
-    }
-
-    function exportExcel() {
-      const columns = [
-        "Date", "Customer", "Village", "Mobile", "Type", "Motor Company", "Motor Type", "HP", "Phase",
-        "Pitch", "Former", "Connection", "Winding Data", "Items", "Total", "Received", "Balance", "Notes"
-      ];
-      const rows = data.transactions.map(t => {
-        const c = data.customers.find(item => item.id === t.customerId) || {};
-        const total = t.type === "job" ? transactionTotal(t) : Number(t.amount || 0);
-        const received = t.type === "job" ? Number(t.paid || 0) : Number(t.amount || 0);
-        const balance = t.type === "job" ? Math.max(total - received, 0) : "";
-        return [
-          t.date || "", c.name || "", c.village || "", c.mobile || "", t.type || "", t.company || "", t.motorType || "", t.hp || "", t.supply || "",
-          t.pitch || "", t.former || "", t.connection || "",
-          Object.entries(t.winding || {}).filter(([, v]) => v).map(([k, v]) => `${label(k)}: ${v}${norm(k).includes("weight") ? " KG" : ""}`).join(" | "),
-          (t.items || []).map(item => `${item.description} (${item.qty} x ${item.price})`).join(" | "),
-          total, received, balance, t.notes || ""
-        ];
+      if (images.hero) {
+        document.getElementById("heroSection").style.setProperty("--hero-image", `url("${images.hero}")`);
+        document.getElementById("craneImage").src = images.hero;
+      }
+      ["gallery1", "gallery2", "gallery3", "gallery4", "gallery5"].forEach((id, index) => {
+        if (images[id]) renderImage(id, images[id], `Workshop photo ${index + 1}`);
       });
-      const html = `
-        <html><head><meta charset="utf-8"></head><body>
-        <table border="1">
-          <thead><tr>${columns.map(col => `<th>${escapeHtml(col)}</th>`).join("")}</tr></thead>
-          <tbody>${rows.map(row => `<tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`).join("")}</tbody>
-        </table>
-        </body></html>
-      `;
-      const blob = new Blob([html], { type: "application/vnd.ms-excel" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "bramhachitanya-workshop-data-" + today() + ".xls";
-      link.click();
-      URL.revokeObjectURL(link.href);
+      Object.entries(settings).forEach(([key, value]) => {
+        const input = document.getElementById(`set${key[0].toUpperCase()}${key.slice(1)}`);
+        if (input) input.value = value;
+      });
     }
 
-    function importBackup(file) {
+    function saveFileAsDataUrl(file, callback) {
+      if (!file) return;
       const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const imported = JSON.parse(reader.result);
-          if (!imported.customers || !imported.transactions) throw new Error("Invalid backup");
-          data = imported; selectedCustomerId = data.customers[0]?.id || null; saveData(); renderAll(); toast("Backup imported");
-        } catch (error) { alert("This backup file is not valid."); }
+      reader.onload = () => callback(reader.result);
+      reader.readAsDataURL(file);
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("settingsToggle").addEventListener("click", () => {
+      document.getElementById("settings").classList.toggle("open");
+      document.getElementById("settings").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    document.getElementById("saveContent").addEventListener("click", () => {
+      const settings = {
+        businessName: document.getElementById("setBusinessName").value.trim(),
+        heroText: document.getElementById("setHeroText").value.trim(),
+        craneText: document.getElementById("setCraneText").value.trim(),
+        address: document.getElementById("setAddress").value.trim(),
+        phoneText: document.getElementById("setPhoneText").value.trim(),
+        email: document.getElementById("setEmail").value.trim(),
+        primaryPhone: document.getElementById("setPrimaryPhone").value.trim()
       };
-      reader.readAsText(file);
-    }
-
-    function openModal(idValue) { document.getElementById(idValue).classList.add("open"); }
-    function closeModals() { document.querySelectorAll(".modal").forEach(m => m.classList.remove("open")); editingTransactionId = null; }
-    function toast(message) { const el = document.getElementById("toast"); el.textContent = message; el.classList.add("show"); setTimeout(() => el.classList.remove("show"), 2200); }
-
-    function switchTab(tabId) {
-      document.querySelectorAll("nav button").forEach(b => b.classList.toggle("active", b.dataset.tab === tabId));
-      document.querySelectorAll(".view").forEach(v => v.classList.toggle("active", v.id === tabId));
-      document.getElementById("pageTitle").textContent = pages[tabId][0];
-      document.getElementById("pageSub").textContent = pages[tabId][1];
-      renderAll();
-    }
-
-    function setDashboardMode(mode) {
-      dashboardMode = mode;
-      document.getElementById("dashMonthMode").classList.toggle("active", mode === "month");
-      document.getElementById("dashYearMode").classList.toggle("active", mode === "year");
-      document.getElementById("dashMonthWrap").classList.toggle("hide", mode !== "month");
-      document.getElementById("dashYearWrap").classList.toggle("hide", mode !== "year");
-      renderDashboard();
-    }
-
-    function togglePaymentRoundoff() {
-      const checkbox = document.getElementById("paymentRoundoff");
-      if (checkbox.checked && !value("paymentAmount")) {
-        setValue("paymentAmount", Math.max(customerDue(selectedCustomerId), 0));
-        if (!value("paymentNotes")) setValue("paymentNotes", "Remaining balance rounded off as discount");
-      }
-    }
-
-    function showAppForUser(user) {
-      document.getElementById("loginView").classList.add("auth-hidden");
-      document.getElementById("appShell").classList.remove("auth-hidden");
-      startCloudSync(user);
-    }
-
-    function showLogin(message = "") {
-      document.getElementById("appShell").classList.add("auth-hidden");
-      document.getElementById("loginView").classList.remove("auth-hidden");
-      document.getElementById("loginError").textContent = message;
-      currentUser = null;
-      if (unsubscribeCloud) unsubscribeCloud();
-      setSyncStatus("Offline cache");
-    }
-
-    async function handleLogin(event) {
-      event.preventDefault();
-      const email = value("loginEmail");
-      const password = value("loginPassword");
-      const errorBox = document.getElementById("loginError");
-      errorBox.textContent = "";
-      if (norm(email) !== ALLOWED_EMAIL) {
-        errorBox.textContent = "This email is not authorised for this workshop system.";
-        return;
-      }
-      try {
-        await auth.signInWithEmailAndPassword(email, password);
-      } catch (error) {
-        errorBox.textContent = friendlyAuthError(error);
-      }
-    }
-
-    function friendlyAuthError(error) {
-      if (error && error.code === "auth/invalid-login-credentials") return "Login failed. Check email/password. Firebase password must be at least 6 characters.";
-      if (error && error.code === "auth/weak-password") return "Firebase password must be at least 6 characters.";
-      if (error && error.code === "auth/operation-not-allowed") return "Email/password login is not enabled in Firebase Auth.";
-      return "Login failed. Please check the Firebase Auth account.";
-    }
-
-    function renderAll() {
-      fillSelects();
-      renderDashboard();
-      renderCustomers();
-      renderMaterials();
-      renderSearch();
-      renderMotorData();
-    }
-
-    document.querySelectorAll("nav button").forEach(b => b.addEventListener("click", () => switchTab(b.dataset.tab)));
-    document.querySelectorAll("[data-close]").forEach(b => b.addEventListener("click", closeModals));
-    document.getElementById("loginForm").addEventListener("submit", handleLogin);
-    document.getElementById("signOutBtn").addEventListener("click", () => auth.signOut());
-    document.getElementById("newCustomerBtn").addEventListener("click", () => openCustomerModal());
-    document.getElementById("customerForm").addEventListener("submit", saveCustomer);
-    document.getElementById("jobForm").addEventListener("submit", saveJob);
-    document.getElementById("paymentForm").addEventListener("submit", savePayment);
-    document.getElementById("paymentRoundoff").addEventListener("change", togglePaymentRoundoff);
-    document.getElementById("materialForm").addEventListener("submit", saveMaterial);
-    document.getElementById("rewindingForm").addEventListener("submit", saveRewindingRate);
-    document.getElementById("customerSearch").addEventListener("input", renderCustomers);
-    ["globalSearch", "globalType", "globalMonth", "globalCustomer", "globalCompany", "globalHp", "globalSupply", "globalMotorType"].forEach(idValue => document.getElementById(idValue).addEventListener("input", renderSearch));
-    ["motorSearch", "motorCompanyFilter", "motorHpFilter", "motorSupplyFilter", "motorTypeFilter"].forEach(idValue => {
-      document.getElementById(idValue).addEventListener("input", () => { focusedMotorId = null; renderMotorData(); });
-      document.getElementById(idValue).addEventListener("change", () => { focusedMotorId = null; renderMotorData(); });
+      localStorage.setItem(storageKey, JSON.stringify(settings));
+      applySettings();
+      alert("माहिती save झाली.");
     });
-    ["jobSupply", "jobPitch"].forEach(idValue => document.getElementById(idValue).addEventListener("change", refreshPitch));
-    ["includeRewinding", "includeLifting", "includeUnlifting", "boreFeet", "jobMotorType", "jobHp"].forEach(idValue => {
-      document.getElementById(idValue).addEventListener("input", syncServiceItems);
-      document.getElementById(idValue).addEventListener("change", syncServiceItems);
-    });
-    document.getElementById("dashMonthMode").addEventListener("click", () => setDashboardMode("month"));
-    document.getElementById("dashYearMode").addEventListener("click", () => setDashboardMode("year"));
-    document.getElementById("dashMonth").addEventListener("input", renderDashboard);
-    document.getElementById("dashYear").addEventListener("input", renderDashboard);
-    document.querySelectorAll("[data-drill]").forEach(card => card.addEventListener("click", () => renderDashboardDrilldown(card.dataset.drill)));
-    document.getElementById("addItemBtn").addEventListener("click", () => addItemRow());
-    document.getElementById("exportBtn").addEventListener("click", exportBackup);
-    document.getElementById("exportBtn2").addEventListener("click", exportBackup);
-    document.getElementById("excelExportBtn").addEventListener("click", exportExcel);
-    document.getElementById("importBtn").addEventListener("click", () => document.getElementById("importFile").click());
-    document.getElementById("importBtn2").addEventListener("click", () => document.getElementById("importFile").click());
-    document.getElementById("importFile").addEventListener("change", e => e.target.files[0] && importBackup(e.target.files[0]));
 
-    setValue("dashMonth", today().slice(0, 7));
-    setValue("dashYear", today().slice(0, 4));
-    fillSelects();
-    renderAll();
-    auth.onAuthStateChanged(user => {
-      if (user && norm(user.email) === ALLOWED_EMAIL) showAppForUser(user);
-      else showLogin(user ? "This signed-in email is not authorised." : "");
+    document.getElementById("resetSettings").addEventListener("click", () => {
+      localStorage.removeItem(storageKey);
+      localStorage.removeItem(imageKey);
+      location.reload();
     });
+
+    document.getElementById("uploadLogo").addEventListener("change", (event) => {
+      saveFileAsDataUrl(event.target.files[0], (src) => {
+        const images = getImages();
+        images.logo = src;
+        localStorage.setItem(imageKey, JSON.stringify(images));
+        applySettings();
+      });
+    });
+
+    document.getElementById("uploadHero").addEventListener("change", (event) => {
+      saveFileAsDataUrl(event.target.files[0], (src) => {
+        const images = getImages();
+        images.hero = src;
+        localStorage.setItem(imageKey, JSON.stringify(images));
+        applySettings();
+      });
+    });
+
+    document.querySelectorAll(".gallery-upload").forEach((input) => {
+      input.addEventListener("change", (event) => {
+        saveFileAsDataUrl(event.target.files[0], (src) => {
+          const images = getImages();
+          images[input.dataset.target] = src;
+          localStorage.setItem(imageKey, JSON.stringify(images));
+          applySettings();
+        });
+      });
+    });
+
+    applySettings();
   </script>
 </body>
 </html>
