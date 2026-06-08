@@ -243,13 +243,22 @@
     .placeholder {
       height: 100%;
       min-height: inherit;
-      display: grid;
-      place-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      gap: 8px;
       padding: 22px;
-      text-align: center;
-      color: var(--muted);
+      text-align: left;
+      color: var(--ink);
       font-weight: 800;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.94)),
+        linear-gradient(135deg, #e9f5f3, #fff4cf);
     }
+
+    .placeholder strong { font-size: 22px; line-height: 1.2; }
+    .placeholder span { color: var(--muted); font-size: 14px; font-weight: 700; }
 
     .contact-band { background: #fff; }
     .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
@@ -443,15 +452,25 @@
     <section id="gallery">
       <div class="wrap">
         <div class="section-head">
-          <h2>मोटर आणि workshop फोटो</h2>
-          <p>लोगो, motor photos आणि workshop चे आणखी फोटो पुढे add करता येतील. फोटो नसतील तर जागा रिकामी ठेवली आहे.</p>
+          <h2>मोटर सेवा आणि कामाची माहिती</h2>
+          <p>प्रत्येक मोटरची अडचण आधी तपासून योग्य service, repair किंवा lifting काम केले जाते. ग्राहकाला कामाची स्पष्ट माहिती देऊन पुढची प्रक्रिया ठरवली जाते.</p>
         </div>
         <div class="gallery">
-          <div class="gallery-item" id="gallery1"><div class="placeholder">V6 / V4 motor फोटो upload करा</div></div>
-          <div class="gallery-item" id="gallery2"><div class="placeholder">ओपनवेल motor फोटो upload करा</div></div>
-          <div class="gallery-item" id="gallery3"><div class="placeholder">इंडक्शन / मोनोब्लॉक फोटो upload करा</div></div>
-          <div class="gallery-item" id="gallery4"><div class="placeholder">workshop / कामाचा फोटो upload करा</div></div>
-          <div class="gallery-item" id="gallery5"><div class="placeholder">ग्राहक साइट फोटो upload करा</div></div>
+          <div class="gallery-item" id="gallery1">
+            <div class="placeholder"><strong>सबमर्सिबल मोटर तपासणी</strong><span>V4, V6 आणि ओपनवेल मोटरचे fault checking, maintenance आणि दुरुस्ती.</span></div>
+          </div>
+          <div class="gallery-item" id="gallery2">
+            <div class="placeholder"><strong>इंडक्शन मोटर सेवा</strong><span>इंडक्शन, मोनोब्लॉक आणि घरगुती पंपांसाठी अनुभवी repair support.</span></div>
+          </div>
+          <div class="gallery-item" id="gallery3">
+            <div class="placeholder"><strong>बोअरवेल lifting</strong><span>Automatic crane च्या मदतीने कमी वेळात motor lifting आणि lowering काम.</span></div>
+          </div>
+          <div class="gallery-item" id="gallery4">
+            <div class="placeholder"><strong>योग्य निदान</strong><span>Cable, bearing, winding, starter आणि load related अडचणींची तपासणी.</span></div>
+          </div>
+          <div class="gallery-item" id="gallery5">
+            <div class="placeholder"><strong>स्थानिक सेवा</strong><span>भोसे, मिरज आणि आसपासच्या भागासाठी विश्वासू workshop service.</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -538,7 +557,7 @@
             <label>Gallery photo 5
               <input class="gallery-upload" data-target="gallery5" type="file" accept="image/*">
             </label>
-            <p class="note">GitHub Pages static असल्यामुळे upload केलेले फोटो तुमच्या browser मध्ये राहतात. कायमस्वरूपी publish करायचे असल्यास फोटो repository मध्ये add करून पुन्हा deploy करा.</p>
+            <p class="note">मोठे फोटो web-size मध्ये कमी करून save केले जातील. Live site वर सर्वांना कायम दिसण्यासाठी फोटो repository मध्ये publish करावे लागतात.</p>
           </div>
         </div>
       </div>
@@ -575,7 +594,13 @@
       });
       return settings;
     }
-    const getImages = () => JSON.parse(localStorage.getItem(imageKey) || "{}");
+    function getImages() {
+      try {
+        return JSON.parse(localStorage.getItem(imageKey) || "{}");
+      } catch (error) {
+        return {};
+      }
+    }
 
     function phoneHref(number) {
       const cleaned = String(number || "").replace(/[^\d]/g, "");
@@ -622,10 +647,36 @@
       });
     }
 
+    function saveStoredImages(images) {
+      try {
+        localStorage.setItem(imageKey, JSON.stringify(images));
+        return true;
+      } catch (error) {
+        alert("फोटो save झाला नाही. कृपया थोडा छोटा फोटो निवडा किंवा आधीचे uploaded फोटो reset करा.");
+        return false;
+      }
+    }
+
     function saveFileAsDataUrl(file, callback) {
       if (!file) return;
       const reader = new FileReader();
-      reader.onload = () => callback(reader.result);
+      reader.onload = () => {
+        const img = new Image();
+        img.onload = () => {
+          const maxSize = 1400;
+          const ratio = Math.min(1, maxSize / Math.max(img.width, img.height));
+          const width = Math.max(1, Math.round(img.width * ratio));
+          const height = Math.max(1, Math.round(img.height * ratio));
+          const canvas = document.createElement("canvas");
+          canvas.width = width;
+          canvas.height = height;
+          const context = canvas.getContext("2d");
+          context.drawImage(img, 0, 0, width, height);
+          callback(canvas.toDataURL("image/jpeg", 0.82));
+        };
+        img.onerror = () => alert("हा फोटो वाचता आला नाही. कृपया दुसरा image file निवडा.");
+        img.src = reader.result;
+      };
       reader.readAsDataURL(file);
     }
 
@@ -673,8 +724,7 @@
       saveFileAsDataUrl(event.target.files[0], (src) => {
         const images = getImages();
         images.logo = src;
-        localStorage.setItem(imageKey, JSON.stringify(images));
-        applySettings();
+        if (saveStoredImages(images)) applySettings();
       });
     });
 
@@ -682,8 +732,7 @@
       saveFileAsDataUrl(event.target.files[0], (src) => {
         const images = getImages();
         images.hero = src;
-        localStorage.setItem(imageKey, JSON.stringify(images));
-        applySettings();
+        if (saveStoredImages(images)) applySettings();
       });
     });
 
@@ -692,8 +741,7 @@
         saveFileAsDataUrl(event.target.files[0], (src) => {
           const images = getImages();
           images[input.dataset.target] = src;
-          localStorage.setItem(imageKey, JSON.stringify(images));
-          applySettings();
+          if (saveStoredImages(images)) applySettings();
         });
       });
     });
