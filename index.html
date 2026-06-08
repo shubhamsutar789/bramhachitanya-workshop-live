@@ -240,6 +240,17 @@
 
     .gallery-item:first-child { grid-row: span 2; min-height: 496px; }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .gallery-caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 18px;
+      color: #fff;
+      background: linear-gradient(180deg, transparent, rgba(6, 24, 22, 0.88));
+      z-index: 2;
+    }
+
+    .gallery-caption strong { display: block; font-size: 22px; line-height: 1.18; }
+    .gallery-caption span { display: block; margin-top: 6px; color: rgba(255, 255, 255, 0.84); font-size: 14px; font-weight: 700; }
     .placeholder {
       height: 100%;
       min-height: inherit;
@@ -325,6 +336,8 @@
     }
 
     .footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .credits { width: 100%; color: rgba(255, 255, 255, 0.52); font-size: 12px; }
+    .credits a { text-decoration: underline; text-underline-offset: 3px; }
 
     @media (max-width: 900px) {
       .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
@@ -353,7 +366,7 @@
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="#home" aria-label="ब्रह्मचैतन्य सबमर्सिबल सर्विसेस">
-        <div class="brand-mark" id="logoSlot"><span>BSS</span></div>
+        <div class="brand-mark" id="logoSlot"><img src="assets/bss-logo.jpg" alt="ब्रह्मचैतन्य सबमर्सिबल सर्विसेस लोगो"></div>
         <div>
           <h1 data-edit="businessName">ब्रह्मचैतन्य सबमर्सिबल सर्विसेस</h1>
           <p>सबमर्सिबल मोटर सेवा | भोसे, मिरज</p>
@@ -452,24 +465,29 @@
     <section id="gallery">
       <div class="wrap">
         <div class="section-head">
-          <h2>मोटर सेवा आणि कामाची माहिती</h2>
-          <p>प्रत्येक मोटरची अडचण आधी तपासून योग्य service, repair किंवा lifting काम केले जाते. ग्राहकाला कामाची स्पष्ट माहिती देऊन पुढची प्रक्रिया ठरवली जाते.</p>
+          <h2>मोटर सेवा आणि कामाचे प्रकार</h2>
+          <p>सबमर्सिबल, ओपनवेल, इंडक्शन आणि घरगुती पंपांसाठी तपासणी, maintenance, repair आणि borewell lifting सेवा एकाच ठिकाणी.</p>
         </div>
         <div class="gallery">
           <div class="gallery-item" id="gallery1">
-            <div class="placeholder"><strong>सबमर्सिबल मोटर तपासणी</strong><span>V4, V6 आणि ओपनवेल मोटरचे fault checking, maintenance आणि दुरुस्ती.</span></div>
+            <img src="assets/motor-submersible.jpg" alt="V4 आणि V6 सबमर्सिबल मोटर">
+            <div class="gallery-caption"><strong>V4 / V6 सबमर्सिबल</strong><span>बोअरवेल मोटर तपासणी, maintenance आणि दुरुस्ती.</span></div>
           </div>
           <div class="gallery-item" id="gallery2">
-            <div class="placeholder"><strong>इंडक्शन मोटर सेवा</strong><span>इंडक्शन, मोनोब्लॉक आणि घरगुती पंपांसाठी अनुभवी repair support.</span></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/A_photo_on_Submersible_Pump.JPG/1280px-A_photo_on_Submersible_Pump.JPG" alt="ओपनवेल सबमर्सिबल पंप">
+            <div class="gallery-caption"><strong>ओपनवेल सबमर्सिबल</strong><span>विहीर, sump आणि शेतीसाठी pump service.</span></div>
           </div>
           <div class="gallery-item" id="gallery3">
-            <div class="placeholder"><strong>बोअरवेल lifting</strong><span>Automatic crane च्या मदतीने कमी वेळात motor lifting आणि lowering काम.</span></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Three_Phase_Induction_Motor.jpg/1280px-Three_Phase_Induction_Motor.jpg" alt="इंडक्शन मोटर">
+            <div class="gallery-caption"><strong>इंडक्शन मोटर</strong><span>Single phase आणि three phase motor checking.</span></div>
           </div>
           <div class="gallery-item" id="gallery4">
-            <div class="placeholder"><strong>योग्य निदान</strong><span>Cable, bearing, winding, starter आणि load related अडचणींची तपासणी.</span></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Self_Priming_Pump.jpg/1280px-Self_Priming_Pump.jpg" alt="Self priming monoblock pump">
+            <div class="gallery-caption"><strong>Self Priming / Monoblock</strong><span>घरगुती lower HP pump आणि monoblock service.</span></div>
           </div>
           <div class="gallery-item" id="gallery5">
-            <div class="placeholder"><strong>स्थानिक सेवा</strong><span>भोसे, मिरज आणि आसपासच्या भागासाठी विश्वासू workshop service.</span></div>
+            <img src="assets/motor-repair.jpg" alt="इंडक्शन मोटर stator आणि rotor repair">
+            <div class="gallery-caption"><strong>Repair आणि winding तपासणी</strong><span>Bearing, cable, winding आणि load fault निदान.</span></div>
           </div>
         </div>
       </div>
@@ -568,6 +586,7 @@
     <div class="wrap">
       <span>© <span id="year"></span> ब्रह्मचैतन्य सबमर्सिबल सर्विसेस</span>
       <span>Submersible motor service, induction motor repair आणि borewell lifting.</span>
+      <span class="credits">Motor photos: Wikimedia Commons contributors, CC BY-SA licensed sources: <a href="https://commons.wikimedia.org/wiki/File:Submersible_pump_0.75HP.jpg" target="_blank" rel="noreferrer">Submersible pump</a>, <a href="https://commons.wikimedia.org/wiki/File:A_photo_on_Submersible_Pump.JPG" target="_blank" rel="noreferrer">Submersible pump photo</a>, <a href="https://commons.wikimedia.org/wiki/File:Three_Phase_Induction_Motor.jpg" target="_blank" rel="noreferrer">Induction motor</a>, <a href="https://commons.wikimedia.org/wiki/File:Self_Priming_Pump.jpg" target="_blank" rel="noreferrer">Self priming pump</a>, <a href="https://commons.wikimedia.org/wiki/File:Stator_and_rotor_by_Zureks.JPG" target="_blank" rel="noreferrer">Stator and rotor</a>.</span>
     </div>
   </footer>
 
@@ -583,7 +602,7 @@
     };
 
     const storageKey = "bssWebsiteSettings";
-    const imageKey = "bssWebsiteImages";
+    const imageKey = "bssWebsiteImagesV2";
     const adminPin = "7410555337";
     function getSettings() {
       const settings = { ...defaults, ...JSON.parse(localStorage.getItem(storageKey) || "{}") };
